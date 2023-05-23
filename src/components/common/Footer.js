@@ -67,15 +67,6 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="row">
-                    <div className="col-md-12 text-center">
-                        <br/>
-                        <div className="copyright">&copy; Tech Blog. Design: <a href="http://html.design">HTML
-                            Design</a>.
-                        </div>
-                    </div>
-                </div>
             </div>
         </footer>
     )

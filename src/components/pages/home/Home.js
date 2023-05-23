@@ -1,13 +1,13 @@
 import React from "react";
-import HotNews from "./HotNews";
-import RecentNews from "./RecentNews";
+import HotNews from "./mainContent/HotNews";
+import RecentNews from "./mainContent/RecentNews";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <HotNews/>
             <RecentNews/>
-        </div>
+        </>
     );
 }
 export default Home;

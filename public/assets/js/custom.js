@@ -4,7 +4,7 @@
     Created By: HTML.Design
     http://themeforest.net/user/wpdestek
 **************************************/
-
+// import jQuery from 'jquery';
 (function($) {
     "use strict";
     $(document).ready(function() {
