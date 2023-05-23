@@ -47,8 +47,8 @@ const Header = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <Link className="navbar-brand" to="/"><img
-                            src="/assets/images/version/tech-logo.png"
-                            alt=""/></Link>
+                            src="/assets/images/logo-header.png"
+                            alt="logo header" width="200px" height="50px"/></Link>
                         <div className="collapse navbar-collapse" id="navbarCollapse">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item">
