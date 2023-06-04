@@ -23,7 +23,7 @@ body,
 .dropdown-item,
 .form-control,
 p {
-    font-family: 'Poppins', serif !important;
+    font-family: 'Montserrat', serif !important;
 }
 
 h1,
@@ -278,7 +278,7 @@ a:focus {
 .btn:hover,
 .btn:focus {
     color: #ffffff !important;
-    background: rgba(0, 0, 0, 0) linear-gradient(to right, #0091e5 0px, #00b7e5 100%) repeat scroll 0 0 !important
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, #0091e5 0px, #00b7e5 100%) repeat scroll 0 0
 }
 
 .tag-cloud-single span,
