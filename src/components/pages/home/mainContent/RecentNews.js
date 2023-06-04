@@ -1,5 +1,6 @@
 import React from "react";
 import SideContents from "./SideContents";
+import {Link} from "react-router-dom";
 
 const RecentNews = () => {
     return (
@@ -9,33 +10,33 @@ const RecentNews = () => {
                     <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         <div className="page-wrapper">
                             <div className="blog-top clearfix">
-                                <h4 className="pull-left">Recent News <a href="home#"><i className="fa fa-rss"></i></a></h4>
+                                <h4 className="pull-left">Tin mới nhất <Link to="/"><i className="fa fa-rss"></i></Link></h4>
                             </div>
 
                             <div className="blog-list clearfix">
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_01.jpg" alt="" className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Top 10 phone applications and 2017
-                                            mobile design awards</a></h4>
+                                        <h4><Link to="/news_details" title="">Top 10 phone applications and 2017
+                                            mobile design awards</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
                                             pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
                                             nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Gadgets</a></small>
-                                        <small><a href="tech-single.html" title="">21 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 1114</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Gadgets</Link></small>
+                                        <small><Link to="/news_details" title="">21 July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 1114</Link></small>
                                     </div>
                                 </div>
 
@@ -44,26 +45,26 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_02.jpg" alt="" className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">A device you can use both headphones
-                                            and usb</a></h4>
+                                        <h4><Link to="/news_details" title="">A device you can use both headphones
+                                            and usb</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris
                                             et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus
                                             enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Technology</a></small>
-                                        <small><a href="tech-single.html" title="">21 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 4412</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Technology</Link></small>
+                                        <small><Link to="/news_details" title="">21 July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 4412</Link></small>
                                     </div>
                                 </div>
 
@@ -72,28 +73,28 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_03.jpg" alt=""
                                                      className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Two brand new laptop models from
-                                            ABC computer</a></h4>
+                                        <h4><Link to="/news_details" title="">Two brand new laptop models from
+                                            ABC computer</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit.
                                             Mauris et pharetratortor. Suspendissea sodales urna. In at augue
                                             elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Development</a></small>
-                                        <small><a href="tech-single.html" title="">20 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 2313</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Development</Link></small>
+                                        <small><Link to="/news_details" title="">20 July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 2313</Link></small>
                                     </div>
                                 </div>
 
@@ -115,30 +116,30 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_04.jpg" alt=""
                                                      className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Applications for taking
-                                            photos of nature in your mobile phones</a></h4>
+                                        <h4><Link to="/news_details" title="">Applications for taking
+                                            photos of nature in your mobile phones</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat
                                             elit. Mauris et pharetratortor. Suspendissea sodales urna.
                                             In at augue elit. Vivamus enim nibh, maximus ac felis nec,
                                             maximus tempor odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Design</a></small>
-                                        <small><a href="tech-single.html" title="">19 July,
-                                            2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 4441</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Design</Link></small>
+                                        <small><Link to="/news_details" title="">19 July,
+                                            2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 4441</Link></small>
                                     </div>
                                 </div>
 
@@ -147,29 +148,29 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_05.jpg" alt=""
                                                      className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Say hello to colored
-                                            strap models in smart hours</a></h4>
+                                        <h4><Link to="/news_details" title="">Say hello to colored
+                                            strap models in smart hours</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non,
                                             placerat elit. Mauris et pharetratortor. Suspendissea
                                             sodales urna. In at augue elit. Vivamus enim nibh,
                                             maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Materials</a></small>
-                                        <small><a href="tech-single.html" title="">18 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 33312</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Materials</Link></small>
+                                        <small><Link to="/news_details" title="">18 July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 33312</Link></small>
                                     </div>
                                 </div>
 
@@ -178,32 +179,32 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_06.jpg" alt=""
                                                      className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">How about
+                                        <h4><Link to="/news_details" title="">How about
                                             evaluating your old mobile phones in different
-                                            ways?</a></h4>
+                                            ways?</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non,
                                             placerat elit. Mauris et pharetratortor.
                                             Suspendissea sodales urna. In at augue elit. Vivamus
                                             enim nibh, maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><a className="bg-orange"
-                                                                         href="tech-category-01.html"
-                                                                         title="">Gadgets</a></small>
-                                        <small><a href="tech-single.html" title="">17 July,
-                                            2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 4440</a></small>
+                                        <small className="firstsmall"><Link className="bg-orange"
+                                                                         to="tech-category-01.html"
+                                                                         title="">Gadgets</Link></small>
+                                        <small><Link to="/news_details" title="">17 July,
+                                            2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 4440</Link></small>
                                     </div>
                                 </div>
 
@@ -212,32 +213,32 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_07.jpg" alt=""
                                                      className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Drinking
-                                            coffee at the computer rests the spirit</a></h4>
+                                        <h4><Link to="/news_details" title="">Drinking
+                                            coffee at the computer rests the spirit</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna non,
                                             placerat elit. Mauris et pharetratortor.
                                             Suspendissea sodales urna. In at augue elit.
                                             Vivamus enim nibh, maximus ac felis nec, maximus
                                             tempor odio.</p>
-                                        <small className="firstsmall"><a
+                                        <small className="firstsmall"><Link
                                             className="bg-orange"
-                                            href="tech-category-01.html"
-                                            title="">Technology</a></small>
-                                        <small><a href="tech-single.html" title="">16 July,
-                                            2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 4412</a></small>
+                                            to="tech-category-01.html"
+                                            title="">Technology</Link></small>
+                                        <small><Link to="/news_details" title="">16 July,
+                                            2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 4412</Link></small>
                                     </div>
                                 </div>
 
@@ -246,34 +247,34 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_08.jpg"
                                                      alt="" className="img-fluid"/>
                                                 <div className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">If you
+                                        <h4><Link to="/news_details" title="">If you
                                             are considering buying a new safe for your
                                             mobile phone, be sure to read this
-                                            article</a></h4>
+                                            article</Link></h4>
                                         <p>Aenean interdum arcu blandit, vehicula magna
                                             non, placerat elit. Mauris et
                                             pharetratortor. Suspendissea sodales urna.
                                             In at augue elit. Vivamus enim nibh, maximus
                                             ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><a
+                                        <small className="firstsmall"><Link
                                             className="bg-orange"
-                                            href="tech-category-01.html"
-                                            title="">Reviews</a></small>
-                                        <small><a href="tech-single.html" title="">15
-                                            July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i
-                                            className="fa fa-eye"></i> 44123</a></small>
+                                            to="tech-category-01.html"
+                                            title="">Reviews</Link></small>
+                                        <small><Link to="/news_details" title="">15
+                                            July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details" title=""><i
+                                            className="fa fa-eye"></i> 44123</Link></small>
                                     </div>
                                 </div>
 
@@ -282,18 +283,18 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img src="/assets/upload/tech_blog_09.jpg"
                                                      alt="" className="img-fluid"/>
                                                 <div
                                                     className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Enjoy
-                                            a summer with a colorful headset</a>
+                                        <h4><Link to="/news_details" title="">Enjoy
+                                            a summer with a colorful headset</Link>
                                         </h4>
                                         <p>Aenean interdum arcu blandit, vehicula
                                             magna non, placerat elit. Mauris et
@@ -301,17 +302,17 @@ const RecentNews = () => {
                                             urna. In at augue elit. Vivamus enim
                                             nibh, maximus ac felis nec, maximus
                                             tempor odio.</p>
-                                        <small className="firstsmall"><a
+                                        <small className="firstsmall"><Link
                                             className="bg-orange"
-                                            href="tech-category-01.html"
-                                            title="">Technology</a></small>
-                                        <small><a href="tech-single.html" title="">14
-                                            July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html"
+                                            to="tech-category-01.html"
+                                            title="">Technology</Link></small>
+                                        <small><Link to="/news_details" title="">14
+                                            July, 2017</Link></small>
+                                        <small><Link to="tech-author.html" title="">by
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details"
                                                   title=""><i
-                                            className="fa fa-eye"></i> 2214</a></small>
+                                            className="fa fa-eye"></i> 2214</Link></small>
                                     </div>
                                 </div>
 
@@ -320,22 +321,22 @@ const RecentNews = () => {
                                 <div className="blog-box row">
                                     <div className="col-md-4">
                                         <div className="post-media">
-                                            <a href="tech-single.html" title="">
+                                            <Link to="/news_details" title="">
                                                 <img
                                                     src="/assets/upload/tech_blog_10.jpg"
                                                     alt=""
                                                     className="img-fluid"/>
                                                 <div
                                                     className="hovereffect"></div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
 
                                     <div
                                         className="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Google
+                                        <h4><Link to="/news_details" title="">Google
                                             has developed a brand new algorithm.
-                                            Forget all your knowledge!</a></h4>
+                                            Forget all your knowledge!</Link></h4>
                                         <p>Aenean interdum arcu blandit,
                                             vehicula magna non, placerat elit.
                                             Mauris et pharetratortor.
@@ -343,19 +344,19 @@ const RecentNews = () => {
                                             augue elit. Vivamus enim nibh,
                                             maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><a
+                                        <small className="firstsmall"><Link
                                             className="bg-orange"
-                                            href="tech-category-01.html"
-                                            title="">Gadgets</a></small>
-                                        <small><a href="tech-single.html"
+                                            to="tech-category-01.html"
+                                            title="">Gadgets</Link></small>
+                                        <small><Link to="/news_details"
                                                   title="">13 July,
-                                            2017</a></small>
-                                        <small><a href="tech-author.html"
+                                            2017</Link></small>
+                                        <small><Link to="tech-author.html"
                                                   title="">by
-                                            Matilda</a></small>
-                                        <small><a href="tech-single.html"
+                                            Matilda</Link></small>
+                                        <small><Link to="/news_details"
                                                   title=""><i
-                                            className="fa fa-eye"></i> 3331</a></small>
+                                            className="fa fa-eye"></i> 3331</Link></small>
                                     </div>
                                 </div>
 
@@ -369,11 +370,11 @@ const RecentNews = () => {
                             <div className="col-md-12">
                                 <nav aria-label="Page navigation">
                                     <ul className="pagination justify-content-start">
-                                        <li className="page-item"><a className="page-link" href="home#">1</a></li>
-                                        <li className="page-item"><a className="page-link" href="home#">2</a></li>
-                                        <li className="page-item"><a className="page-link" href="home#">3</a></li>
+                                        <li className="page-item"><Link className="page-link" to="home#">1</Link></li>
+                                        <li className="page-item"><Link className="page-link" to="home#">2</Link></li>
+                                        <li className="page-item"><Link className="page-link" to="home#">3</Link></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="home#">Next</a>
+                                            <Link className="page-link" to="home#">Next</Link>
                                         </li>
                                     </ul>
                                 </nav>
