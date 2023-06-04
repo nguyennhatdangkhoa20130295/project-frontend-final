@@ -2,7 +2,7 @@ import './App.css';
 import Header from "./components/common/Header";
 import Home from "./components/pages/home/Home";
 import Footer from "./components/common/Footer";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NewsDetails from "./components/pages/singlePage/NewsDetails";
 import SpecificPage from "./components/pages/singlePage/SpecificPage";
 

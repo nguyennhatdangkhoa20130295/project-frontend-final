@@ -1,6 +1,5 @@
 import React from "react";
 import SideContents from "./SideContents";
-
 const RecentNews = () => {
     return (
         <section className="section">
