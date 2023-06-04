@@ -1,7 +1,5 @@
 import React from "react";
 import SideContents from "./SideContents";
-import {Link} from "react-router-dom";
-
 const RecentNews = () => {
     return (
         <section className="section">
