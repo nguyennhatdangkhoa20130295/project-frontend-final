@@ -39,7 +39,7 @@ p,
 .navbar-inverse .navbar-nav .nav-link,
 .header .dropdown-menu,
 .navbar-nav .nav-link {
-    font-family: 'Roboto', serif;
+    font-family: 'Montserrat', serif;
 }
 
 h1,
@@ -396,6 +396,31 @@ div.tab button:hover {
     float: left;
     padding: 2rem 1.5rem 0;
     width: 80%;
+}
+.form-control{
+    border-radius: 7px;
+    border: 1.5px solid #E3E6ED;
+}
+input.form-control:focus{
+    box-shadow: none;
+    border: 1.5px solid #E3E6ED;
+    background-color: #F7F8FD;
+    letter-spacing: 1px;
+}
+.btn-primary{
+    background-color: #5878FF!important;
+    border-radius: 7px;
+}
+.btn-primary:focus{
+    box-shadow: none;
+}
+.search{
+    scale: 0.9;
+    width: 40%;
+}
+.searchBtn{
+    border-radius: 0 7px 7px 0 !important;
+    background: #0091e5 !important;
 }
 
 
@@ -900,6 +925,7 @@ div.tab button:hover {
 .post-sharing span,
 .post-sharing li {
     display: inline-block !important;
+    margin: 0 3px;
 }
 
 .single-post-media {
@@ -1604,6 +1630,7 @@ hr.invis3 {
     height: 54px;
     border-radius: 0;
     border: 0;
+    margin-left: 5px;
 }
 
 .newsletter-widget .btn i {

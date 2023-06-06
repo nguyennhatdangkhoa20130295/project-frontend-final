@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
 const SideContents = () =>{
     return(
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
@@ -69,10 +71,10 @@ const SideContents = () =>{
                 </div>
 
                 <div className="widget">
-                    <h2 className="widget-title">Popular Posts</h2>
+                    <h2 className="widget-title">Tin tức phổ biến</h2>
                     <div className="blog-list-widget">
                         <div className="list-group">
-                            <a href="tech-single.html"
+                            <Link to="/news_details"
                                className="list-group-item list-group-item-action flex-column align-items-start">
                                 <div className="w-100 justify-content-between">
                                     <img src="/assets/upload/tech_blog_08.jpg" alt=""
@@ -80,9 +82,9 @@ const SideContents = () =>{
                                     <h5 className="mb-1">5 Beautiful buildings you need..</h5>
                                     <small>12 Jan, 2016</small>
                                 </div>
-                            </a>
+                            </Link>
 
-                            <a href="tech-single.html"
+                            <Link to="/news_details"
                                className="list-group-item list-group-item-action flex-column align-items-start">
                                 <div className="w-100 justify-content-between">
                                     <img src="/assets/upload/tech_blog_01.jpg" alt=""
@@ -90,9 +92,9 @@ const SideContents = () =>{
                                     <h5 className="mb-1">Let's make an introduction for..</h5>
                                     <small>11 Jan, 2016</small>
                                 </div>
-                            </a>
+                            </Link>
 
-                            <a href="tech-single.html"
+                            <Link to="/news_details"
                                className="list-group-item list-group-item-action flex-column align-items-start">
                                 <div className="w-100 last-item justify-content-between">
                                     <img src="/assets/upload/tech_blog_03.jpg" alt=""
@@ -100,62 +102,7 @@ const SideContents = () =>{
                                     <h5 className="mb-1">Did you see the most beautiful..</h5>
                                     <small>07 Jan, 2016</small>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="widget">
-                    <h2 className="widget-title">Recent Reviews</h2>
-                    <div className="blog-list-widget">
-                        <div className="list-group">
-                            <a href="tech-single.html"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 justify-content-between">
-                                    <img src="/assets/upload/tech_blog_02.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">Banana-chip chocolate cake recipe..</h5>
-                                    <span className="rating">
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                </span>
-                                </div>
-                            </a>
-
-                            <a href="tech-single.html"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 justify-content-between">
-                                    <img src="/assets/upload/tech_blog_03.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">10 practical ways to choose organic..</h5>
-                                    <span className="rating">
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                </span>
-                                </div>
-                            </a>
-
-                            <a href="tech-single.html"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 last-item justify-content-between">
-                                    <img src="/assets/upload/tech_blog_07.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">We are making homemade ravioli..</h5>
-                                    <span className="rating">
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                    <i className="fa fa-star"></i>
-                                                </span>
-                                </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

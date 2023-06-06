@@ -7,6 +7,7 @@ export function openCategory(evt, catName, setActiveSubcategory) {
 }
 
 const Header = () => {
+    const numberOfDivs = 4;
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const categories = [
@@ -62,10 +63,10 @@ const Header = () => {
                                                     setActiveCategory(category.name);
                                                     setActiveSubcategory(category.subcategories[0]);
                                                 }}
-                                                onMouseLeave={() => {
-                                                    setActiveCategory('');
-                                                    setActiveSubcategory('');
-                                                }}
+                                                // onMouseLeave={() => {
+                                                //     setActiveCategory('');
+                                                //     setActiveSubcategory('');
+                                                // }}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                                                 <Link className="nav-link dropdown-toggle" to="/specific_pages"
                                                       id={`dropdown${categoryIndex}`}
@@ -94,117 +95,40 @@ const Header = () => {
                                                                             <div key={subCategoryId} id={subCategoryId}
                                                                                  className={activeSubcategory === subcategory ? 'tabcontent active' : 'tabcontent'}>
                                                                                 <div className="row">
-
-                                                                                    <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                                                        <div className="blog-box">
-                                                                                            <div className="post-media">
-                                                                                                <Link to="/news_details"
-                                                                                                      title="">
-                                                                                                    <img
-                                                                                                        src="/assets/upload/tech_menu_01.jpg"
-                                                                                                        alt=""
-                                                                                                        className="img-fluid"/>
-                                                                                                    <div
-                                                                                                        className="hovereffect">
-                                                                                                    </div>
-                                                                                                    <span
-                                                                                                        className="menucat">{subcategory}</span>
-                                                                                                </Link>
-                                                                                            </div>
-                                                                                            <div className="blog-meta">
-                                                                                                <h4><Link
-                                                                                                    to="/news_details"
-                                                                                                    title="">Top
-                                                                                                    10+ care advice for
-                                                                                                    your
-                                                                                                    toenails</Link>
-                                                                                                </h4>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                                                        <div className="blog-box">
-                                                                                            <div className="post-media">
-                                                                                                <Link to="/news_details"
-                                                                                                      title="">
-                                                                                                    <img
-                                                                                                        src="/assets/upload/tech_menu_02.jpg"
-                                                                                                        alt=""
-                                                                                                        className="img-fluid"/>
-                                                                                                    <div
-                                                                                                        className="hovereffect">
-                                                                                                    </div>
-                                                                                                    <span
-                                                                                                        className="menucat">{subcategory}</span>
-                                                                                                </Link>
-                                                                                            </div>
-                                                                                            <div className="blog-meta">
-                                                                                                <h4><Link
-                                                                                                    to="/news_details"
-                                                                                                    title="">The
-                                                                                                    secret of your
-                                                                                                    beauty is
-                                                                                                    handmade
-                                                                                                    soap</Link></h4>
+                                                                                    {Array.from({length: numberOfDivs}, (_, index) => (
+                                                                                        <div key={index}
+                                                                                             className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                                            <div className="blog-box">
+                                                                                                <div
+                                                                                                    className="post-media">
+                                                                                                    <Link
+                                                                                                        to="/news_details"
+                                                                                                        title="">
+                                                                                                        <img
+                                                                                                            src="/assets/upload/tech_menu_01.jpg"
+                                                                                                            alt=""
+                                                                                                            className="img-fluid"/>
+                                                                                                        <div
+                                                                                                            className="hovereffect">
+                                                                                                        </div>
+                                                                                                        <span
+                                                                                                            className="menucat">{subcategory}</span>
+                                                                                                    </Link>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    className="blog-meta">
+                                                                                                    <h4><Link
+                                                                                                        to="/news_details"
+                                                                                                        title="">Top
+                                                                                                        10+ care advice
+                                                                                                        for
+                                                                                                        your
+                                                                                                        toenails</Link>
+                                                                                                    </h4>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </div>
-
-                                                                                    <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                                                        <div className="blog-box">
-                                                                                            <div className="post-media">
-                                                                                                <a href="tech-single.html"
-                                                                                                   title="">
-                                                                                                    <img
-                                                                                                        src="/assets/upload/tech_menu_03.jpg"
-                                                                                                        alt=""
-                                                                                                        className="img-fluid"/>
-                                                                                                    <div
-                                                                                                        className="hovereffect">
-                                                                                                    </div>
-                                                                                                    <span
-                                                                                                        className="menucat">{subcategory}</span>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                            <div className="blog-meta">
-                                                                                                <h4><a
-                                                                                                    href="tech-single.html"
-                                                                                                    title="">Benefits
-                                                                                                    of face mask made
-                                                                                                    from
-                                                                                                    mud</a></h4>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                                                        <div className="blog-box">
-                                                                                            <div className="post-media">
-                                                                                                <a href="tech-single.html"
-                                                                                                   title="">
-                                                                                                    <img
-                                                                                                        src="/assets/upload/tech_menu_04.jpg"
-                                                                                                        alt=""
-                                                                                                        className="img-fluid"/>
-                                                                                                    <div
-                                                                                                        className="hovereffect">
-                                                                                                    </div>
-                                                                                                    <span
-                                                                                                        className="menucat">{subcategory}</span>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                            <div className="blog-meta">
-                                                                                                <h4><a
-                                                                                                    href="tech-single.html"
-                                                                                                    title="">Relax
-                                                                                                    with the unique
-                                                                                                    warmth of
-                                                                                                    candle
-                                                                                                    flavor</a></h4>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                    ))}
                                                                                 </div>
                                                                             </div>
                                                                         );
@@ -226,18 +150,16 @@ const Header = () => {
                                 })
                                 }
                             </ul>
-                            <ul className="navbar-nav mr-2">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-rss"></i></a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-android"></i></a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-apple"></i></a>
-                                </li>
-                            </ul>
                         </div>
+                        <form className="search">
+                            <div className="input-group">
+                                <input type="text" className="form-control"/>
+                                <div className="input-group-append">
+                                    <button className="btn btn-primary searchBtn" style={{background:'#0091e5 !important'}}><i className="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </nav>
                 </div>
             </header>
