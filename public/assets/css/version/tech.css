@@ -23,7 +23,7 @@ body,
 .dropdown-item,
 .form-control,
 p {
-    font-family: 'Montserrat', serif !important;
+    font-family: Arial, sans-serif !important;
 }
 
 h1,
@@ -77,6 +77,14 @@ h5 {
 .second-slot {
     float: left;
     width: 25%;
+}
+.first-slot img {
+    width: 788px;
+    height: 443px;
+}
+.second-slot img {
+    width: 394px;
+    height: 443px;
 }
 
 .first-slot .blog-meta h4 {

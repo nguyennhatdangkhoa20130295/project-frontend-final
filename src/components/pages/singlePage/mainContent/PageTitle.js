@@ -19,7 +19,7 @@ const PageTitle = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 export default PageTitle;

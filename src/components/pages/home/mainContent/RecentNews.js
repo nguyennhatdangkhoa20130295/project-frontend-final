@@ -1,5 +1,6 @@
 import React from "react";
 import SideContents from "./SideContents";
+import {Link} from "react-router-dom";
 const RecentNews = () => {
     return (
         <section className="section">
@@ -28,13 +29,10 @@ const RecentNews = () => {
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
                                             pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
                                             nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Gadgets</Link></small>
-                                        <small><Link to="/news_details" title="">21 July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 1114</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Gadgets</a></small>
+                                        <small>21 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 1114</small>
                                     </div>
                                 </div>
 
@@ -56,13 +54,10 @@ const RecentNews = () => {
                                         <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris
                                             et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus
                                             enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Technology</Link></small>
-                                        <small><Link to="/news_details" title="">21 July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 4412</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Technology</a></small>
+                                        <small>21 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 4412</small>
                                     </div>
                                 </div>
 
@@ -86,13 +81,10 @@ const RecentNews = () => {
                                             Mauris et pharetratortor. Suspendissea sodales urna. In at augue
                                             elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Development</Link></small>
-                                        <small><Link to="/news_details" title="">20 July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 2313</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Development</a></small>
+                                        <small>20 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 2313</small>
                                     </div>
                                 </div>
 
@@ -129,15 +121,10 @@ const RecentNews = () => {
                                             elit. Mauris et pharetratortor. Suspendissea sodales urna.
                                             In at augue elit. Vivamus enim nibh, maximus ac felis nec,
                                             maximus tempor odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Design</Link></small>
-                                        <small><Link to="/news_details" title="">19 July,
-                                            2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 4441</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Design</a></small>
+                                        <small>19 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 4441</small>
                                     </div>
                                 </div>
 
@@ -161,14 +148,10 @@ const RecentNews = () => {
                                             placerat elit. Mauris et pharetratortor. Suspendissea
                                             sodales urna. In at augue elit. Vivamus enim nibh,
                                             maximus ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Materials</Link></small>
-                                        <small><Link to="/news_details" title="">18 July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 33312</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Materials</a></small>
+                                        <small>18 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 33312</small>
                                     </div>
                                 </div>
 
@@ -194,15 +177,10 @@ const RecentNews = () => {
                                             Suspendissea sodales urna. In at augue elit. Vivamus
                                             enim nibh, maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><Link className="bg-orange"
-                                                                         to="tech-category-01.html"
-                                                                         title="">Gadgets</Link></small>
-                                        <small><Link to="/news_details" title="">17 July,
-                                            2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 4440</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Gadgets</a></small>
+                                        <small>>17 July, 2017</small>
+                                        <small>>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 4440</small>
                                     </div>
                                 </div>
 
@@ -227,16 +205,10 @@ const RecentNews = () => {
                                             Suspendissea sodales urna. In at augue elit.
                                             Vivamus enim nibh, maximus ac felis nec, maximus
                                             tempor odio.</p>
-                                        <small className="firstsmall"><Link
-                                            className="bg-orange"
-                                            to="tech-category-01.html"
-                                            title="">Technology</Link></small>
-                                        <small><Link to="/news_details" title="">16 July,
-                                            2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 4412</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Technology</a></small>
+                                        <small>16 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 4412</small>
                                     </div>
                                 </div>
 
@@ -263,16 +235,10 @@ const RecentNews = () => {
                                             pharetratortor. Suspendissea sodales urna.
                                             In at augue elit. Vivamus enim nibh, maximus
                                             ac felis nec, maximus tempor odio.</p>
-                                        <small className="firstsmall"><Link
-                                            className="bg-orange"
-                                            to="tech-category-01.html"
-                                            title="">Reviews</Link></small>
-                                        <small><Link to="/news_details" title="">15
-                                            July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details" title=""><i
-                                            className="fa fa-eye"></i> 44123</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Reviews</a></small>
+                                        <small>15 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 44123</small>
                                     </div>
                                 </div>
 
@@ -300,17 +266,10 @@ const RecentNews = () => {
                                             urna. In at augue elit. Vivamus enim
                                             nibh, maximus ac felis nec, maximus
                                             tempor odio.</p>
-                                        <small className="firstsmall"><Link
-                                            className="bg-orange"
-                                            to="tech-category-01.html"
-                                            title="">Technology</Link></small>
-                                        <small><Link to="/news_details" title="">14
-                                            July, 2017</Link></small>
-                                        <small><Link to="tech-author.html" title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details"
-                                                  title=""><i
-                                            className="fa fa-eye"></i> 2214</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Technology</a></small>
+                                        <small>14 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 2214</small>
                                     </div>
                                 </div>
 
@@ -342,19 +301,10 @@ const RecentNews = () => {
                                             augue elit. Vivamus enim nibh,
                                             maximus ac felis nec, maximus tempor
                                             odio.</p>
-                                        <small className="firstsmall"><Link
-                                            className="bg-orange"
-                                            to="tech-category-01.html"
-                                            title="">Gadgets</Link></small>
-                                        <small><Link to="/news_details"
-                                                  title="">13 July,
-                                            2017</Link></small>
-                                        <small><Link to="tech-author.html"
-                                                  title="">by
-                                            Matilda</Link></small>
-                                        <small><Link to="/news_details"
-                                                  title=""><i
-                                            className="fa fa-eye"></i> 3331</Link></small>
+                                        <small className="firstsmall"><a className="bg-orange" title="">Gadgets</a></small>
+                                        <small>13 July, 2017</small>
+                                        <small>by Matilda</small>
+                                        <small><i className="fa fa-eye"></i> 3331</small>
                                     </div>
                                 </div>
 

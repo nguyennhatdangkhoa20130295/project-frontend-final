@@ -1,5 +1,6 @@
 import React from "react";
 import SideContents from "../../home/mainContent/SideContents";
+import {Link} from "react-router-dom";
 
 const MainContent = () => {
     const numberOfNews = 12;
@@ -27,15 +28,14 @@ const MainContent = () => {
                                                 <div className="blog-meta big-meta">
                                                 <span className="color-orange"><Link to="/specific_pages"
                                                                                      title="">Gadgets</Link></span>
-                                                    <h4><a href="tech-single.html" title="">We visited the ancient theater
-                                                        in Macedonia</a></h4>
+                                                    <h4><Link to="/news_details" title="">We visited the ancient theater
+                                                        in Macedonia</Link></h4>
                                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit.
                                                         Mauris et pharetratortor. Suspendissea sodales urna. In at augue
                                                         elit. Vivamus enim nibh.</p>
-                                                    <small><a href="tech-single.html" title="">14 July, 2017</a></small>
-                                                    <small><a href="tech-author.html" title="">by Jack</a></small>
-                                                    <small><a href="tech-single.html" title=""><i
-                                                        className="fa fa-eye"></i> 2887</a></small>
+                                                    <small>14 July, 2017</small>
+                                                    <small>by Jack</small>
+                                                    <small><i className="fa fa-eye"></i> 2887</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -50,9 +50,9 @@ const MainContent = () => {
                             <div className="col-md-12">
                                 <nav aria-label="Page navigation">
                                     <ul className="pagination justify-content-start">
-                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                        <li className="page-item"><a className="page-link" href="#"></a>1</li>
+                                        <li className="page-item"><a className="page-link" href="#"></a>2</li>
+                                        <li className="page-item"><a className="page-link" href="#"></a>3</li>
                                         <li className="page-item">
                                             <a className="page-link" href="#">Next</a>
                                         </li>
