@@ -1,7 +1,12 @@
 import React from "react";
 import SideContents from "../home/mainContent/SideContents";
+import {Link} from "react-router-dom";
+import {TabTitle} from "../../../utils/DynamicTitle";
 
 const NewsDetails = () => {
+    // Dynamic Title
+    TabTitle('Chi tiết bài báo');
+
     return (
         <>
             <section className="section single-wrapper">
@@ -11,22 +16,21 @@ const NewsDetails = () => {
                             <div className="page-wrapper">
                                 <div className="blog-title-area text-center">
                                     <ol className="breadcrumb hidden-xs-down">
-                                        <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
                                         <li className="breadcrumb-item"><a href="#">Blog</a></li>
                                         <li className="breadcrumb-item active">Top 10 phone applications and 2017 mobile
                                             design awards
                                         </li>
                                     </ol>
 
-                                    <span className="color-orange"><a href="tech-category-01.html"
-                                                                      title="">Technology</a></span>
+                                    <span className="color-orange"><a title="">Technology</a></span>
 
                                     <h3>Top 10 phone applications and 2017 mobile design awards</h3>
 
                                     <div className="blog-meta big-meta">
-                                        <small><a href="tech-single.html" title="">21 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by Jessica</a></small>
-                                        <small><a href="#" title=""><i className="fa fa-eye"></i> 2344</a></small>
+                                        <small>21 July, 2017</small>
+                                        <small>by Jessica</small>
+                                        <small><i className="fa fa-eye"></i> 2344</small>
                                     </div>
 
                                     <div className="post-sharing">

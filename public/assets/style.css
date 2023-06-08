@@ -1187,6 +1187,11 @@ hr.invis3 {
     overflow: hidden;
 }
 
+.post-media img {
+    width: 255px;
+    height: 213px;
+}
+
 .shadoweffect {
     position: absolute;
     top: 0;

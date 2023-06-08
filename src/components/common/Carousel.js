@@ -4,13 +4,14 @@ import React from "react";
 import BigCards from "./BigCards";
 import SmallCard from "./SmallCard";
 
-function Carousel(){
-    return(
-    <>
-        <BigCards/>
-        <SmallCard/>
-        <SmallCard/>
-    </>
+function Carousel() {
+    return (
+        <>
+            <BigCards/>
+            <SmallCard/>
+            <SmallCard/>
+        </>
     )
 }
+
 export default Carousel;
