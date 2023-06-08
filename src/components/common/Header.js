@@ -1,5 +1,8 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import {categoriesData} from "../../category_data/CategoryList";
+import axios from "axios";
+import {parseString} from "xml2js";
 
 export function openCategory(evt, catName, setActiveSubcategory) {
     evt.preventDefault();
@@ -7,36 +10,33 @@ export function openCategory(evt, catName, setActiveSubcategory) {
 }
 
 const Header = () => {
-    const numberOfDivs = 4;
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
-    const categories = [
-        {
-            id: 1,
-            name: 'Bóng đá Việt Nam',
-            subcategories: ['V-League', 'Đội tuyển quốc gia', 'U23 Đông Nam Á', 'Bóng đã nữ', 'AFF Cup 2023'],
-        },
-        {
-            id: 2,
-            name: 'Cup C1',
-            subcategories: [],
-        },
-        {
-            id: 3,
-            name: 'Bóng đá quốc tế',
-            subcategories: [],
-        },
-        {
-            id: 4,
-            name: 'Thể thao',
-            subcategories: ['Bóng chuyền', 'Quần vợt', 'Bóng rỗ', 'Võ thuật', 'Các môn khác'],
-        },
-        {
-            id: 5,
-            name: 'ESports',
-            subcategories: [],
-        },
-    ];
+    const [feedData, setFeedData] = useState([]);
+    const categories = categoriesData;
+    const fetchRssData = async (slug) => {
+        try {
+            const response = await axios.get(`/api/${slug}.rss`);
+            const rssData = response.data;
+            parseString(rssData, (err, result) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                const items = result.rss.channel[0].item.slice(0, 4);
+                setFeedData(items);
+                console.log(items)
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        if (activeSubcategory) {
+            fetchRssData(activeSubcategory);
+        }
+    }, [activeSubcategory]);
     return (
         <>
             <header className="tech-header header">
@@ -60,15 +60,11 @@ const Header = () => {
                                         return (
                                             <li key={categoryIndex}
                                                 onMouseEnter={() => {
-                                                    setActiveCategory(category.name);
-                                                    setActiveSubcategory(category.subcategories[0]);
+                                                    setActiveCategory(category.slug);
+                                                    setActiveSubcategory(category.subcategories[0].slug);
                                                 }}
-                                                // onMouseLeave={() => {
-                                                //     setActiveCategory('');
-                                                //     setActiveSubcategory('');
-                                                // }}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
-                                                <Link className="nav-link dropdown-toggle" to="/specific_pages"
+                                                <Link className="nav-link dropdown-toggle" to={`/category/${encodeURIComponent(category.name)}`}
                                                       id={`dropdown${categoryIndex}`}
                                                       data-toggle="dropdown" aria-haspopup="true"
                                                       aria-expanded="false">{category.name}</Link>
@@ -81,55 +77,53 @@ const Header = () => {
                                                                     {category.subcategories.map((subcategory, subcategoryIndex) => {
                                                                         return (
                                                                             <button key={subcategoryIndex}
-                                                                                    className={activeSubcategory === subcategory ? 'tablinks active' : 'tablinks'}
-                                                                                    onClick={(event) => openCategory(event, category.subcategories[subcategoryIndex], setActiveSubcategory)}>{subcategory}
+                                                                                    className={activeSubcategory === subcategory.slug ? 'tablinks active' : 'tablinks'}
+                                                                                    onClick={(event) => openCategory(event, subcategory.slug, setActiveSubcategory)}>{subcategory.name}
                                                                             </button>
                                                                         );
                                                                     })}
                                                                 </div>
-
                                                                 <div className="tab-details clearfix">
                                                                     {category.subcategories.map((subcategory, subcategoryIndex) => {
                                                                         const subCategoryId = `cat0${categoryIndex}-${subcategoryIndex}`;
                                                                         return (
-                                                                            <div key={subCategoryId} id={subCategoryId}
-                                                                                 className={activeSubcategory === subcategory ? 'tabcontent active' : 'tabcontent'}>
+                                                                            <div key={subCategoryId}
+                                                                                 id={subCategoryId}
+                                                                                 className={activeSubcategory === subcategory.slug ? 'tabcontent active' : 'tabcontent'}>
                                                                                 <div className="row">
-                                                                                    {Array.from({length: numberOfDivs}, (_, index) => (
-                                                                                        <div key={index}
-                                                                                             className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                                                            <div className="blog-box">
+                                                                                    {feedData.map((item, itemIndex) => {
+                                                                                        return (<div key={itemIndex}
+                                                                                                     className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                                            <div
+                                                                                                className="blog-box">
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to="/news_details"
+                                                                                                        to={item.link[0]}
                                                                                                         title="">
                                                                                                         <img
-                                                                                                            src="/assets/upload/tech_menu_01.jpg"
-                                                                                                            alt=""
-                                                                                                            className="img-fluid"/>
+                                                                                                            src={item.description[0].match(/src="(.*?)"/)[1]}
+                                                                                                            alt="Thumbnail"/>
                                                                                                         <div
                                                                                                             className="hovereffect">
                                                                                                         </div>
                                                                                                         <span
-                                                                                                            className="menucat">{subcategory}</span>
+                                                                                                            className="menucat">{subcategory.name}</span>
                                                                                                     </Link>
                                                                                                 </div>
                                                                                                 <div
                                                                                                     className="blog-meta">
                                                                                                     <h4><Link
                                                                                                         to="/news_details"
-                                                                                                        title="">Top
-                                                                                                        10+ care advice
-                                                                                                        for
-                                                                                                        your
-                                                                                                        toenails</Link>
+                                                                                                        title="">{item.title[0]}</Link>
                                                                                                     </h4>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                    ))}
+                                                                                        </div>)
+                                                                                    })}
                                                                                 </div>
+                                                                                <Link className="nav-link" style={{float: "right"}}
+                                                                                      to={`/category/${encodeURIComponent(subcategory.name)}`}>Xem thêm</Link>
                                                                             </div>
                                                                         );
                                                                     })}
@@ -143,7 +137,8 @@ const Header = () => {
                                     } else {
                                         return (
                                             <li key={categoryIndex} className="nav-item">
-                                                <Link className="nav-link" to="/specific_pages">{category.name}</Link>
+                                                <Link className="nav-link"
+                                                      to={`/category/${encodeURIComponent(category.name)}`}>{category.name}</Link>
                                             </li>
                                         )
                                     }
@@ -155,7 +150,8 @@ const Header = () => {
                             <div className="input-group">
                                 <input type="text" className="form-control"/>
                                 <div className="input-group-append">
-                                    <button className="btn btn-primary searchBtn" style={{background:'#0091e5 !important'}}><i className="fa fa-search"></i>
+                                    <button className="btn btn-primary searchBtn"
+                                            style={{background: '#0091e5 !important'}}><i className="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -164,7 +160,8 @@ const Header = () => {
                 </div>
             </header>
         </>
-    );
+    )
+        ;
 }
 
 export default Header;
