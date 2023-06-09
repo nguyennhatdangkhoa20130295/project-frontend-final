@@ -76,11 +76,11 @@ const MainContent = () => {
                             <div className="col-md-12">
                                 <nav aria-label="Page navigation">
                                     <ul className="pagination justify-content-start">
-                                        <li className="page-item"><a className="page-link" href="#"></a>1</li>
-                                        <li className="page-item">n<a className="page-link" href="#"></a>2</li>
-                                        <li className="page-item"><a className="page-link" href="#"></a>3</li>
+                                        <li className="page-item"><Link className="page-link" to="home#">1</Link></li>
+                                        <li className="page-item"><Link className="page-link" to="home#">2</Link></li>
+                                        <li className="page-item"><Link className="page-link" to="home#">3</Link></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="#">Next</a>
+                                            <Link className="page-link" to="home#">Next</Link>
                                         </li>
                                     </ul>
                                 </nav>
