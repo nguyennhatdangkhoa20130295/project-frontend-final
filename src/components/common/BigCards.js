@@ -9,6 +9,8 @@ function BigCards({image, title, date, author}) {
             <div className="first-slot">
                 <div className="masonry-box post-media">
                     <img src="/assets/upload/tech_01.jpg" alt="" className="img-fluid"/>
+                    <div className="hovereffect"/>
+                    
                     <div className="shadoweffect">
                         <div className="shadow-desc">
                             <div className="blog-meta">

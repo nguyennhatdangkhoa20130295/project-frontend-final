@@ -9,6 +9,8 @@ function SmallCard ({image, title, date, author}) {
             <div className="second-slot">
                 <div className="masonry-box post-media">
                     <img src="/assets/upload/tech_02.jpg" alt="" className="img-fluid"/>
+                    <div className="hovereffect"/>
+                    
                     <div className="shadoweffect">
                         <div className="shadow-desc">
                             <div className="blog-meta">
