@@ -12,7 +12,7 @@ const SpecificPage = () => {
     return (
         <>
             <PageTitle category={category}/>
-            <MainContent/>
+            <MainContent category={category}/>
         </>
     );
 }
