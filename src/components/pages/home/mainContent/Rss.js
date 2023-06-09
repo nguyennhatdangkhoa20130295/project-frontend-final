@@ -1,78 +1,12 @@
-// import 'promise-polyfill/src/polyfill';
-// import React, { useState, useEffect } from 'react';
-// import Parser from 'rss-parser';
-//
-// const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-// const parser = new Parser();
-// // create a page that will display the rss feed
-// const Rss = () => {
-//
-//     const [feeds, setFeeds] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-//     useEffect(() => {
-//         const loadFeeds = async () => {
-//             try {
-//                 const feed = await parser.parseURL(
-//                     CORS_PROXY + 'https://vnexpress.net/rss/the-thao.rss'
-//                 );
-//                 setFeeds(feed.items);
-//                 setLoading(false);
-//             } catch (err) {
-//                 setError(err.message);
-//                 setLoading(false);
-//             }
-//         };
-//         loadFeeds();
-//     }, []);
-//     if (loading) return <div>Loading...</div>;
-//     if (error) return <div>Error: {error}</div>;
-//     return (
-//         <div className="container">
-//             <div className="row">
-//                 {feeds.map((feed) => (
-//                     <div className="col-md-4">
-//                         <div className="card mb-4 shadow-sm">
-//                             <img
-//                                 className="bd-placeholder-img card-img-top"
-//                                 width="100%"
-//                                 height="225"
-//                                 src={feed.enclosure.url}
-//                                 alt=""
-//                             />
-//                             <div className="card-body">
-//                                 <h5 className="card-title">{feed.title}</h5>
-//                                 <p className="card-text">{feed.contentSnippet}</p>
-//                                 <div className="d-flex justify-content-between align-items-center">
-//                                     <div className="btn-group">
-//                                         <a
-//                                             href={feed.link}
-//                                             target="_blank"
-//                                             rel="noopener noreferrer"
-//                                             className="btn btn-sm btn-outline-secondary"
-//                                         >
-//                                             View
-//                                         </a>
-//                                     </div>
-//                                     <small className="text-muted">{feed.pubDate}</small>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
-// export default Rss;
-import React, { useState } from "react";
 
-export default function App() {
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+
+export default function Rss() {
     const [rssUrl, setRssUrl] = useState("");
     const [items, setItems] = useState([]);
 
-    const getRss = async (e) => {
-        e.preventDefault();
+    const getRss = async () => {
         const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
         if (!urlRegex.test(rssUrl)) {
             return;
@@ -84,27 +18,21 @@ export default function App() {
         const feedItems = [...items].map((el) => ({
             link: el.querySelector("link").innerHTML,
             title: el.querySelector("title").innerHTML,
-            author: el.querySelector("author").innerHTML
+            image: el.querySelector("description").innerHTML.match(/src="([^"]*)"/)[1],
         }));
         setItems(feedItems);
     };
-
+    useEffect(() => {
+        setRssUrl("https://vnexpress.net/rss/the-thao.rss");
+        getRss();
+    }, []);
     return (
-        <div className="App">
-            <form onSubmit={getRss}>
-                <div>
-                    <label> rss url</label>
-                    <br />
-                    <input onChange={(e) => setRssUrl(e.target.value)} value={rssUrl} />
-                </div>
-                <input type="submit" />
-            </form>
+        <div >
             {items.map((item) => {
                 return (
                     <div>
                         <h1>{item.title}</h1>
-                        <p>{item.author}</p>
-                        <a href={item.link}>{item.link}</a>
+                        <Link href={item.link}> <img src={item.image} alt={item.title} /></Link>
                     </div>
                 );
             })}
