@@ -7,7 +7,7 @@ import RecentNews from "./mainContent/RecentNews";
 
 const Home = () => {
     // Dynamic Title
-    TabTitle('THỂ THAO 247');
+    TabTitle('THỂ THAO 247 - Tin thể thao, tỷ số & lịch thi đấu mới nhất');
 
     return (
         <>

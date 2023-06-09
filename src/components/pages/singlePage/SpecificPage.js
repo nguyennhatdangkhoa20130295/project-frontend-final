@@ -5,9 +5,10 @@ import {TabTitle} from "../../../utils/DynamicTitle";
 import {useParams} from "react-router-dom";
 
 const SpecificPage = () => {
-    // Dynamic Title
-    TabTitle('Specific Page');
     const {category} = useParams();
+    // Dynamic Title
+    TabTitle(category  + ' - Thể Thao 247');
+    
     return (
         <>
             <PageTitle category={category}/>

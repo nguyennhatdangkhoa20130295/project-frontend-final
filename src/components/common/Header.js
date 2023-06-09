@@ -148,7 +148,7 @@ const Header = () => {
                         </div>
                         <form className="search">
                             <div className="input-group">
-                                <input type="text" className="form-control"/>
+                                <input type="text" className="form-control" placeholder="Tìm kiếm tại đây"/>
                                 <div className="input-group-append">
                                     <button className="btn btn-primary searchBtn"
                                             style={{background: '#0091e5 !important'}}><i className="fa fa-search"></i>
