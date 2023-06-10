@@ -1,0 +1,10 @@
+.Pagination {
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    flex-direction: inherit;
+  }
+
+.loadMoreBtn {
+    margin-left: 350px;
+  }
