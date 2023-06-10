@@ -3,6 +3,9 @@ import SideContents from "../../home/mainContent/SideContents";
 import {Link} from "react-router-dom";
 import {categoriesData} from "../../../../category_data/CategoryList";
 import RssFeedByCategory from "../../../../rss/RssFeedByCategory";
+import "../../singlePage/mainContent/Pagination.css"
+import { useState } from "react";
+
 const findCategoryBySlug = (categories, categoryName) => {
     for (const category of categories) {
         if (category.name === categoryName) {
@@ -16,6 +19,7 @@ const findCategoryBySlug = (categories, categoryName) => {
     }
     return null;
 };
+
 const MainContent = ({category}) => {
     console.log(category)
     const categories = categoriesData;
@@ -24,9 +28,16 @@ const MainContent = ({category}) => {
 
     const slug = selectedCategory ? selectedCategory.slug : '';
     console.log(slug)
-    const numberOfNews = 12;
     const feedData = RssFeedByCategory(slug);
     console.log(feedData);
+
+    // Load more
+    const [postsPerPage, setPostsPerPage] = useState(6);
+    const loadMore = () => {
+        setPostsPerPage(postsPerPage + postsPerPage);
+    }
+    const slices = feedData.slice(0, postsPerPage);
+
     return (<>
             <section className="section">
                 <div className="container">
@@ -37,16 +48,14 @@ const MainContent = ({category}) => {
                             <div className="page-wrapper">
                                 <div className="blog-grid-system">
                                     <div className="row">
-                                        {feedData.map((item, itemIndex) => {
+                                        {slices.map((item, itemIndex) => {
                                             return (<div key={itemIndex} className="col-md-6">
                                                 <div className="blog-box">
                                                     <div className="post-media">
                                                         <Link to={item.link} title="">
                                                             <img src={item.imageUrl} alt=""
                                                                  className="img-fluid"/>
-                                                            <div className="hovereffect">
-                                                                <span></span>
-                                                            </div>
+                                                            <div className="hovereffect"></div>
                                                         </Link>
                                                     </div>
                                                     <div className="blog-meta big-meta">
@@ -66,18 +75,12 @@ const MainContent = ({category}) => {
 
                             <hr className="invis3"/>
 
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <nav aria-label="Page navigation">
-                                        <ul className="pagination justify-content-start">
-                                            <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                            <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                            <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                            <li className="page-item">
-                                                <a className="page-link" href="#">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                            <div className="row Pagination">
+                                <div className="col-lg-12">
+                                   <button className="btn btn-dark d-block w-20 loadMoreBtn"
+                                   onClick={() => loadMore()}>
+                                    Xem thêm
+                                   </button>
                                 </div>
                             </div>
                         </div>
