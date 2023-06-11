@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import VideoPlayer from "./VideoPlayer";
 
 const SideContents = () =>{
     return(
@@ -19,7 +20,11 @@ const SideContents = () =>{
                         <div className="blog-box">
                             <div className="post-media">
                                 <a href="tech-single.html" title="">
-                                    <img src="/assets/upload/tech_video_01.jpg" alt="" className="img-fluid"/>
+                                    <video width="320" height="240" controls>
+                                        src="https://www.youtube.com/watch?v=o_R10T59ZPg"
+                                        poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg"
+                                        <a href="https://www.youtube.com/watch?v=o_R10T59ZPg" title="">download</a>
+                                    </video>
                                     <div className="hovereffect">
                                         <span className="videohover"></span>
                                     </div>
@@ -36,7 +41,7 @@ const SideContents = () =>{
                         <div className="blog-box">
                             <div className="post-media">
                                 <a href="tech-single.html" title="">
-                                    <img src="/assets/upload/tech_video_02.jpg" alt="" className="img-fluid"/>
+                                    <VideoPlayer source="https://youtu.be/o_R10T59ZPg"/>
                                     <div className="hovereffect">
                                         <span className="videohover"></span>
                                     </div>
@@ -53,8 +58,7 @@ const SideContents = () =>{
                         <div className="blog-box">
                             <div className="post-media">
                                 <a href="tech-single.html" title="">
-                                    <img src="/assets/upload/tech_video_03.jpg" alt=""
-                                         className="img-fluid"/>
+                                    <VideoPlayer source="https://youtu.be/o_R10T59ZPg"/>
                                     <div className="hovereffect">
                                         <span className="videohover"></span>
                                     </div>
@@ -137,13 +141,6 @@ const SideContents = () =>{
                                 <i className="fa fa-youtube"></i>
                                 <p>22k</p>
                             </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="widget">
-                    <div className="banner-spot clearfix">
-                        <div className="banner-img">
-                            <img src="/assets/upload/banner_03.jpg" alt="" className="img-fluid"/>
                         </div>
                     </div>
                 </div>
