@@ -13,8 +13,7 @@ const Home = () => {
         <>
             <HotNews/>
             <RecentNews/>
-            {/*<Rss/>*/}
-            <RssTest/>
+
         </>
     );
 }
