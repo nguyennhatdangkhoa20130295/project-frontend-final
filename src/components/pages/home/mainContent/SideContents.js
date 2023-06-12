@@ -2,17 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 
-const SideContents = () =>{
+const SideContents = () => {
     return(
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div className="sidebar">
-                <div className="widget">
-                    <div className="banner-spot clearfix">
-                        <div className="banner-img">
-                            <img src="/assets/upload/banner_07.jpg" alt="" className="img-fluid"/>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="widget">
                     <h2 className="widget-title">Trend Videos</h2>
@@ -20,9 +13,9 @@ const SideContents = () =>{
                         <div className="blog-box">
                             <div className="post-media">
                                 <a href="tech-single.html" title="">
-                                    <video width="320" height="240" controls>
+                                    <video width="320" height="240" controls
                                         src="https://www.youtube.com/watch?v=o_R10T59ZPg"
-                                        poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg"
+                                        poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg">
                                         <a href="https://www.youtube.com/watch?v=o_R10T59ZPg" title="">download</a>
                                     </video>
                                     <div className="hovereffect">

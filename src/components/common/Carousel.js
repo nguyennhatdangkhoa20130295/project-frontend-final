@@ -13,7 +13,7 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                                     <span className="bg-orange"><a title="">Hot News</a></span>
-                                        <h4><Link to={item.link}>{item.title}</Link></h4>
+                                        <h4><Link to="/news_details">{item.title}</Link></h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Hot News</a></span>
-                                        <h4><Link to={item.link}>{item.title}</Link></h4>
+                                        <h4><Link to="/news_details">{item.title}</Link></h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>

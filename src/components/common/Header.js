@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import {categoriesData} from "../../category_data/CategoryList";
 import axios from "axios";
 import {parseString} from "xml2js";
+import SearchBar from "./SearchBar";
+import {useParams} from "react-router-dom";
 
 export function openCategory(evt, catName, setActiveSubcategory) {
     evt.preventDefault();
@@ -10,6 +12,7 @@ export function openCategory(evt, catName, setActiveSubcategory) {
 }
 
 const Header = () => {
+    const {category} = useParams();
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [feedData, setFeedData] = useState([]);
@@ -99,7 +102,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to={item.link[0]}
+                                                                                                        to="/news_details"
                                                                                                         title="">
                                                                                                         <img
                                                                                                             src={item.description[0].match(/src="(.*?)"/)[1]}
@@ -146,16 +149,9 @@ const Header = () => {
                                 }
                             </ul>
                         </div>
-                        <form className="search">
-                            <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Tìm kiếm tại đây"/>
-                                <div className="input-group-append">
-                                    <button className="btn btn-primary searchBtn"
-                                            style={{background: '#0091e5 !important'}}><i className="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        <div className="search">
+                            <SearchBar category={category}/>
+                        </div>
                     </nav>
                 </div>
             </header>

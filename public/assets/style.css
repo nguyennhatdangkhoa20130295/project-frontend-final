@@ -354,7 +354,7 @@ a {
 
 div.tab {
     float: left;
-    padding: 2rem 0;
+    padding: 3rem 0;
     border-right: 1px solid #e1e3e6;
     width: 20%;
     background-color: #edeff2;
@@ -450,11 +450,11 @@ input.form-control:focus{
 }
 .search{
     scale: 0.9;
-    width: 40%;
+    width: 50%;
 }
 .searchBtn{
     border-radius: 0 7px 7px 0 !important;
-    background: #0091e5 !important;
+    background: #FF6347 !important;
 }
 
 
@@ -462,7 +462,7 @@ input.form-control:focus{
 **************************************/
 
 .section {
-    padding: 4rem 0;
+    padding: 1rem 0;
     display: block;
     position: relative;
     background-color: #ffffff;
@@ -820,7 +820,7 @@ input.form-control:focus{
 
 .breadcrumb-item {
     float: none;
-    font-size: 12px;
+    font-size: 16px;
     display: inline-block;
 }
 
@@ -853,7 +853,7 @@ input.form-control:focus{
 }
 
 .page-title {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background-color: #edeff2;
 }
 
@@ -1490,6 +1490,9 @@ hr.invis3 {
     margin: 0 0 2rem;
     padding: 0;
     line-height: 1;
+    background-color: #0091e5;
+    padding: 10px;
+    color: white;
 }
 
 .footer-text img {
@@ -1661,10 +1664,9 @@ hr.invis3 {
 }
 
 .newsletter-widget .btn {
-    height: 54px;
+    height: 56px;
     border-radius: 0;
     border: 0;
-    margin-left: 5px;
 }
 
 .newsletter-widget .btn i {
@@ -1734,4 +1736,26 @@ hr.invis3 {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+
+.scroll-to-top div {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: #0091e5;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top div i {
+    color: #fff;
+    padding: 2px 7px;
+    font-size: 25px;
 }

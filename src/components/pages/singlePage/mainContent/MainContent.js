@@ -1,10 +1,11 @@
 import React from "react";
-import SideContents from "../../home/mainContent/SideContents";
 import {Link} from "react-router-dom";
 import {categoriesData} from "../../../../category_data/CategoryList";
 import RssFeedByCategory from "../../../../rss/RssFeedByCategory";
 import "../../singlePage/mainContent/Pagination.css"
 import {useState} from "react";
+import ScrollToTop from "../../../common/ScrollToTop";
+import SideContentSpecific from "./SideContentSpecific";
 
 const findCategoryBySlug = (categories, categoryName) => {
     for (const category of categories) {
@@ -75,7 +76,7 @@ const MainContent = ({category}) => {
                 <div className="container">
                     <div className="row">
                         {firstNews && <Cover category={category} data={firstNews}/>}
-                        <SideContents/>
+                        <SideContentSpecific category={category}/>
                         <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                             <div className="page-wrapper">
                                 <div className="blog-grid-system">
@@ -91,9 +92,9 @@ const MainContent = ({category}) => {
                                                         </Link>
                                                     </div>
                                                     <div className="blog-meta big-meta">
-                    <span className="color-orange"><Link
-                        to={`/category/${encodeURIComponent(category)}`}
-                        title="">{category}</Link></span>
+                                                        <span className="color-orange"><Link
+                                                            to={`/category/${encodeURIComponent(category)}`}
+                                                            title="">{category}</Link></span>
                                                         <h4><Link to='/news_details' title="">{item.title}</Link></h4>
                                                         <p>{item.description}</p>
                                                         <small><Link to='/news_details'
@@ -117,6 +118,8 @@ const MainContent = ({category}) => {
                         </div>
                     </div>
                 </div>
+
+                <ScrollToTop/>
             </section>
         </>
     );
