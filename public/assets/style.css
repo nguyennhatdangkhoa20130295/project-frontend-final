@@ -977,7 +977,7 @@ input.form-control:focus{
     display: block;
     position: relative;
     padding: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .blog-title-area .breadcrumb {
@@ -1012,7 +1012,7 @@ input.form-control:focus{
 }
 
 .blog-title-area span a {
-    padding: 0 1rem;
+    padding: 0.3rem 0.7rem;
     color: #ffffff !important;
     border-radius: 3px;
 }
@@ -1177,7 +1177,7 @@ input.form-control:focus{
 }
 
 .blog-meta small {
-    font-size: 11px;
+    font-size: 13px;
     display: inline-block;
     margin-bottom: 0;
     padding-bottom: 0;

@@ -1,8 +1,12 @@
-
 import React from "react";
 import {Link} from "react-router-dom";
+import {findCategoryBySlug} from "./MainContent";
+import {categoriesData} from "../../../../category_data/CategoryList";
 
-const PageTitle = ({category}) => {
+const PageTitle = ({slug}) => {
+    const selectedCategory = findCategoryBySlug(categoriesData, slug);
+    console.log(selectedCategory)
+    const category = selectedCategory ? selectedCategory.name : '';
     return (
         <div className="page-title lb single-wrapper">
             <div className="container">
@@ -13,6 +17,7 @@ const PageTitle = ({category}) => {
                     <div className="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
+                            {/*<li className="breadcrumb-item"><Link to="/">{category}</Link></li>*/}
                             <li className="breadcrumb-item active">{category}</li>
                         </ol>
                     </div>

@@ -4,16 +4,18 @@ import React from "react";
 function Carousel(props) {
     return (
         props.data.map((item, index) => {
+            const link = item.link.replace('https://thethao247.vn/', '');
             if (index === 0) {
                 return (
-                    <div className="first-slot">
-                        <div className="masonry-box post-media" key={index}>
+                    <div key={index} className="first-slot">
+                        <div className="masonry-box post-media">
                             <img src={item.image} alt="" className="img-fluid"/>
                             <div className="shadoweffect">
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
-                                                    <span className="bg-orange"><a title="">Hot News</a></span>
-                                        <h4><Link to="/news_details">{item.title}</Link></h4>
+                                        <span className="bg-orange"><a title="">Hot News</a></span>
+                                        <h4><Link to={`/news_details/${encodeURIComponent(link)}`}>{item.title}</Link>
+                                        </h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>
@@ -23,15 +25,16 @@ function Carousel(props) {
                 )
             } else {
                 return (
-                    <div className="second-slot">
-                        <div className="masonry-box post-media" key={index}>
+                    <div key={index} className="second-slot">
+                        <div className="masonry-box post-media">
                             <img src={item.image} alt="" className="img-fluid"/>
                             <div className="hovereffect"/>
                             <div className="shadoweffect">
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Hot News</a></span>
-                                        <h4><Link to="/news_details">{item.title}</Link></h4>
+                                        <h4><Link to={`/news_details/${encodeURIComponent(link)}`}>{item.title}</Link>
+                                        </h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>
