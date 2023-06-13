@@ -46,13 +46,14 @@ export default function RecentNews() {
                                 <h4 className="pull-left">Tin mới nhất <Link to="/"><i className="fa fa-rss"></i></Link>
                                 </h4>
                             </div>
-                            {items.map((item) => {
+                            {items.map((item, itemIndex) => {
+                                const link = item.link.replace('https://thethao247.vn/', '');
                                 return (
-                                    <div className="blog-list clearfix">
+                                    <div key={itemIndex} className="blog-list clearfix">
                                         <div className="blog-box row">
                                             <div className="col-md-4">
                                                 <div className="post-media">
-                                                    <Link to="/news_details" title="">
+                                                    <Link to={`/news_details/${encodeURIComponent(link)}`} title="">
                                                         <img src={item.image} alt="/" className="img-fluid"/>
                                                         <div className="hovereffect"></div>
                                                     </Link>
@@ -60,11 +61,9 @@ export default function RecentNews() {
                                             </div>
 
                                             <div className="blog-meta big-meta col-md-8">
-                                                <h4><Link to="/news_details" title="">{item.title}</Link></h4>
+                                                <h4><Link to={`/news_details/${encodeURIComponent(link)}`} title="">{item.title}</Link></h4>
                                                 <p>{item.description}</p>
                                                 <small>{item.pubDate}</small>
-                                                <small>{item.author}</small>
-                                                <small><i className="fa fa-eye"></i> 1114</small>
                                             </div>
                                         </div>
 

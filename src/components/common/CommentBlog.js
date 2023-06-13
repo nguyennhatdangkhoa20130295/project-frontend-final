@@ -43,8 +43,8 @@ const CommentBlog = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="comments-list">
-                            {comments.map((comment) => (
-                            <div className="media">
+                            {comments.map((comment, index) => (
+                            <div key={index} className="media">
                                 <div className="media-body">
                                     <h4 className="media-heading user_name">{comment.name}
                                         <small>{new Date(comment.createdAt).toLocaleString()}</small>

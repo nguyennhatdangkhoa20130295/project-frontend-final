@@ -67,7 +67,8 @@ const Header = () => {
                                                     setActiveSubcategory(category.subcategories[0].slug);
                                                 }}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
-                                                <Link className="nav-link dropdown-toggle" to={`/category/${encodeURIComponent(category.name)}`}
+                                                <Link className="nav-link dropdown-toggle"
+                                                      to={`/category/${category.slug}`}
                                                       id={`dropdown${categoryIndex}`}
                                                       data-toggle="dropdown" aria-haspopup="true"
                                                       aria-expanded="false">{category.name}</Link>
@@ -95,6 +96,7 @@ const Header = () => {
                                                                                  className={activeSubcategory === subcategory.slug ? 'tabcontent active' : 'tabcontent'}>
                                                                                 <div className="row">
                                                                                     {feedData.map((item, itemIndex) => {
+                                                                                        const link = item.link[0].replace('https://thethao247.vn/', '');
                                                                                         return (<div key={itemIndex}
                                                                                                      className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                                                             <div
@@ -102,7 +104,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to="/news_details"
+                                                                                                        to={`/news_details/${link}`}
                                                                                                         title="">
                                                                                                         <img
                                                                                                             src={item.description[0].match(/src="(.*?)"/)[1]}
@@ -117,7 +119,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="blog-meta">
                                                                                                     <h4><Link
-                                                                                                        to="/news_details"
+                                                                                                        to={`/news_details/${link}`}
                                                                                                         title="">{item.title[0]}</Link>
                                                                                                     </h4>
                                                                                                 </div>
@@ -125,8 +127,10 @@ const Header = () => {
                                                                                         </div>)
                                                                                     })}
                                                                                 </div>
-                                                                                <Link className="nav-link" style={{float: "right"}}
-                                                                                      to={`/category/${encodeURIComponent(subcategory.name)}`}>Xem thêm</Link>
+                                                                                <Link className="nav-link"
+                                                                                      style={{float: "right"}}
+                                                                                      to={`/category/${subcategory.slug}`}>Xem
+                                                                                    thêm</Link>
                                                                             </div>
                                                                         );
                                                                     })}
@@ -141,7 +145,7 @@ const Header = () => {
                                         return (
                                             <li key={categoryIndex} className="nav-item">
                                                 <Link className="nav-link"
-                                                      to={`/category/${encodeURIComponent(category.name)}`}>{category.name}</Link>
+                                                      to={`/category/${category.slug}`}>{category.name}</Link>
                                             </li>
                                         )
                                     }
@@ -156,8 +160,7 @@ const Header = () => {
                 </div>
             </header>
         </>
-    )
-        ;
+    );
 }
 
 export default Header;
