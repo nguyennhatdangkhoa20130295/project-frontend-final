@@ -9,14 +9,14 @@ export default function RssFeed(rssUrl) {
             const { contents } = await res.data;
             const feed = new window.DOMParser().parseFromString(contents, "text/xml");
             const items = feed.querySelectorAll("item");
-            const formatter = {day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric'};
+            const formatter = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'};
 
             const feedItems = [...items].map((el) => ({
                 link: el.querySelector("link").innerHTML,
                 title: el.querySelector("title").innerHTML.replace("<![CDATA[", "").replace("]]>", ""),
                 image: el.querySelector("description").innerHTML.match(/src="([^"]*)"/)[1],
                 description:el.querySelector("description").innerHTML.replace("<![CDATA[", "").replace("]]>", "").replace(/<img[^>]*>/g,"").replace(/<a[^>]*>/g,"").replace(/<\/a>/g,""),
-                pubDate: new Date(el.querySelector("pubDate").innerHTML).toLocaleDateString('vi-VN', formatter),
+                pubDate: new Date(el.querySelector("pubDate").innerHTML).toLocaleDateString('en-US', formatter),
                 author: el.querySelector("creator").innerHTML
             }));
             setItems(feedItems);
