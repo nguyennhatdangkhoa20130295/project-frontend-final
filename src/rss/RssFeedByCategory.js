@@ -20,8 +20,8 @@ const RssFeedByCategory = (slug) => {
                             const description = item.description[0].replace(/<\/?[^>]+(>|$)/g, '');
                             const imageUrl = item.description[0].match(/src="(.*?)"/)[1];
                             const newImageUrl = imageUrl.replace("360x230", "1080x716");
-                            const formatter = {day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric'};
-                            const publishedDate = new Date(item.pubDate[0]).toLocaleDateString('vi-VN', formatter);
+                            const formatter = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'};
+                            const publishedDate = new Date(item.pubDate[0]).toLocaleDateString('en-US', formatter);
 
                             return {
                                 title: item.title[0],

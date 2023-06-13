@@ -26,7 +26,7 @@ const SideContentSpecific = ({category}) =>{
     const feedData = RssFeedByCategory(slug);
 
     const reversedData = feedData.reverse();
-    const slicedData = reversedData.slice(0, 4);
+    const slicedData = reversedData.slice(11, 15);
     const finalData = slicedData.reverse();
 
     return(
@@ -37,7 +37,7 @@ const SideContentSpecific = ({category}) =>{
                     <h2 className="widget-title">Cùng chuyên mục</h2>
                     <div className="trend-videos">
                         <div className="blog-list-widget">
-                            {feedData.slice(0, 3).map((item, itemIndex) => {
+                            {finalData.map((item, itemIndex) => {
                                 return (
                                     <div key={itemIndex} className="list-group">
                                         <Link to="/news_details"
@@ -62,7 +62,7 @@ const SideContentSpecific = ({category}) =>{
                 <div className="widget">
                     <h2 className="widget-title">Tin tức phổ biến</h2>
                     <div className="blog-list-widget">
-                        {finalData.map((item, itemIndex) => {
+                        {feedData.slice(0, 3).map((item, itemIndex) => {
                             return (
                                 <div key={itemIndex} className="list-group">
                                     <Link to="/news_details"
