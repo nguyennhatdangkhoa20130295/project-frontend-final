@@ -1,11 +1,12 @@
 import React from "react";
-import SideContents from "../home/mainContent/SideContents";
 import {Link, useParams} from "react-router-dom";
 import {TabTitle} from "../../../utils/DynamicTitle";
 import RssNewsDetails from "../../../rss/RssNewsDetails";
 import "../singlePage/NewsDetail.css"
 import CommentBlog from "../../common/CommentBlog";
 import ScrollToTop from "../../common/ScrollToTop";
+import RelativeNews from "./RelativeNews";
+import SideContentDetail from "./mainContent/SideContentDetail";
 
 const NewsDetails = () => {
     const {link} = useParams();
@@ -60,56 +61,12 @@ const NewsDetails = () => {
                                 </div>
 
                                 <hr className="invis1"/>
-
-                                <div className="custombox clearfix">
-                                    <h4 className="small-title">Có thể bạn quan tâm</h4>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="blog-box">
-                                                <div className="post-media">
-                                                    <Link to="/news_details" title="">
-                                                        <img src="/assets/upload/tech_menu_04.jpg" alt=""
-                                                             className="img-fluid"/>
-                                                        <div className="hovereffect"/>
-                                                    </Link>
-                                                </div>
-                                                <div className="blog-meta">
-                                                    <h4><Link to="/news_details" title="">We are guests of
-                                                        ABC Design Studio</Link></h4>
-                                                    <small><a href="blog-category-01.html"
-                                                              title="">Trends</a></small>
-                                                    <small><a href="blog-category-01.html" title="">21 July,
-                                                        2017</a></small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg-6">
-                                            <div className="blog-box">
-                                                <div className="post-media">
-                                                    <a href="tech-single.html" title="">
-                                                        <img src="/assets/upload/tech_menu_06.jpg" alt=""
-                                                             className="img-fluid"/>
-                                                        <div className="hovereffect"/>
-                                                    </a>
-                                                </div>
-                                                <div className="blog-meta">
-                                                    <h4><a href="tech-single.html" title="">Nostalgia at
-                                                        work with family</a></h4>
-                                                    <small><a href="blog-category-01.html" title="">News</a></small>
-                                                    <small><a href="blog-category-01.html" title="">20 July,
-                                                        2017</a></small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <RelativeNews slug="bong-da"/>
                                 <hr className="invis1"/>
                                 <CommentBlog/>
                             </div>
                         </div>
-                        {/*<SideContents/>*/}
+                        <SideContentDetail slug="bong-da"/>
                     </div>
                 </div>
                 <ScrollToTop/>

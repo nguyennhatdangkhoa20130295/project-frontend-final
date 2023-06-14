@@ -2,67 +2,62 @@ import React from "react";
 import {Link} from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 
-const SideContents = () => {
+const SideContents = (props) => {
+
     return(
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div className="sidebar">
-
                 <div className="widget">
-                    <h2 className="widget-title">Trend Videos</h2>
+                    <h2 className="widget-title">Video phổ biến</h2>
                     <div className="trend-videos">
                         <div className="blog-box">
-                            <div className="post-media">
-                                <a href="tech-single.html" title="">
-                                    <video width="320" height="240" controls
-                                        src="https://www.youtube.com/watch?v=o_R10T59ZPg"
-                                        poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg">
-                                        <a href="https://www.youtube.com/watch?v=o_R10T59ZPg" title="">download</a>
-                                    </video>
-                                    <div className="hovereffect">
-                                        <span className="videohover"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="blog-meta">
-                                <h4><Link to="tech-single.html" title="">We prepared the best 10 laptop
-                                    presentations for you</Link></h4>
-                            </div>
+                            <Link to="https://youtu.be/o_R10T59ZPg" title="">
+                                <div className="post-media">
+                                    <VideoPlayer
+                                        source="https://youtu.be/o_R10T59ZPg"
+                                        poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg"
+                                    />
+                                    <span className="videohover"></span>
+                                </div>
+                                <div className="blog-meta">
+                                    <h4>HIGHLIGHTS: NAPOLI - AC MILAN | HỎNG ĂN PENALTY CÙNG NHAU VÀ 2 CÁI KẾT KHÁC NHAU | UCL 22/23</h4>
+                                </div>
+                            </Link>
                         </div>
 
                         <hr className="invis"/>
 
                         <div className="blog-box">
-                            <div className="post-media">
-                                <a href="tech-single.html" title="">
-                                    <VideoPlayer source="https://youtu.be/o_R10T59ZPg"/>
-                                    <div className="hovereffect">
-                                        <span className="videohover"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="blog-meta">
-                                <h4><a href="tech-single.html" title="">We are guests of ABC Design
-                                    Studio - Vlog</a></h4>
-                            </div>
+                            <Link to="https://youtu.be/iFAZ-0cm5YU" title="">
+                                <div className="post-media">
+                                    <VideoPlayer
+                                        source="https://youtu.be/iFAZ-0cm5YU"
+                                        poster="https://i.ytimg.com/vi/iFAZ-0cm5YU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAEzeB4igxS_EEeB-Th54Oup5xLFA"
+                                    />
+                                   <span className="videohover"></span>
+                                </div>
+                                <div className="blog-meta">
+                                    <h4>HIGHLIGHTS: MAN UNITED - CHELSEA | TẤN CÔNG RỰC LỬA, TẤM VÉ CUỐI CÙNG ĐÃ CÓ CHỦ | NGOẠI HẠNG ANH 22/23</h4>
+                                </div>
+                            </Link>
                         </div>
 
                         <hr className="invis"/>
 
                         <div className="blog-box">
-                            <div className="post-media">
-                                <a href="tech-single.html" title="">
-                                    <VideoPlayer source="https://youtu.be/o_R10T59ZPg"/>
-                                    <div className="hovereffect">
-                                        <span className="videohover"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="blog-meta">
-                                <h4><a href="tech-single.html" title="">Both blood pressure monitor
-                                    and intelligent clock</a></h4>
-                            </div>
+                            <Link to="https://youtu.be/QV6z8WXGaq4" title="">
+                                <div className="post-media">
+                                    <VideoPlayer
+                                        source="https://youtu.be/QV6z8WXGaq4"
+                                        poster="https://i.ytimg.com/vi/QV6z8WXGaq4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLADL-uLEnRuK9X3PeDgAEQSxvrU-A"
+                                    />
+                                    <span className="videohover"></span>
+                                </div>
+                                <div className="blog-meta">
+                                    <h4>HIGHLIGHTS | VIỆT NAM - CAMPUCHIA | BÓNG RỔ NỮ 5x5 | THIÊN ĐƯỜNG CỦA BẮN 3 ĐIỂM | SEA GAMES 32</h4>
+                                </div>
+                            </Link>
                         </div>
-
 
                     </div>
                 </div>
@@ -70,42 +65,27 @@ const SideContents = () => {
                 <div className="widget">
                     <h2 className="widget-title">Tin tức phổ biến</h2>
                     <div className="blog-list-widget">
-                        <div className="list-group">
-                            <Link to="/news_details"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 justify-content-between">
-                                    <img src="/assets/upload/tech_blog_08.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">5 Beautiful buildings you need..</h5>
-                                    <small>12 Jan, 2016</small>
+                        {props.data.slice(0, 4).map((item, index) => {
+                            const link = item.link.replace('https://thethao247.vn/', '');
+                            return (
+                                <div key={index} className="list-group">
+                                    <Link to={`/news_details/${encodeURIComponent(link)}`}
+                                          className="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div className="w-100 justify-content-between">
+                                            <img src={item.image} alt=""
+                                                 className="img-fluid float-left"/>
+                                            <h5 className="mb-1">{item.title}</h5>
+                                            <small>{item.pubDate}</small>
+                                        </div>
+                                    </Link>
                                 </div>
-                            </Link>
-
-                            <Link to="/news_details"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 justify-content-between">
-                                    <img src="/assets/upload/tech_blog_01.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">Let's make an introduction for..</h5>
-                                    <small>11 Jan, 2016</small>
-                                </div>
-                            </Link>
-
-                            <Link to="/news_details"
-                               className="list-group-item list-group-item-action flex-column align-items-start">
-                                <div className="w-100 last-item justify-content-between">
-                                    <img src="/assets/upload/tech_blog_03.jpg" alt=""
-                                         className="img-fluid float-left"/>
-                                    <h5 className="mb-1">Did you see the most beautiful..</h5>
-                                    <small>07 Jan, 2016</small>
-                                </div>
-                            </Link>
-                        </div>
+                            )
+                        })}
                     </div>
                 </div>
 
                 <div className="widget">
-                    <h2 className="widget-title">Follow Us</h2>
+                    <h2 className="widget-title">Theo dõi</h2>
 
                     <div className="row text-center">
                         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">

@@ -17,12 +17,12 @@ const findCategoryBySlug = (categories, categoryName) => {
     return null;
 };
 
-const SideContentSpecific = ({category}) =>{
+const SideContentDetail = ({slug}) =>{
     const categories = categoriesData;
 
-    const selectedCategory = findCategoryBySlug(categories, category);
+    const selectedCategory = findCategoryBySlug(categories, slug);
 
-    const slug = selectedCategory ? selectedCategory.slug : '';
+    const category = selectedCategory ? selectedCategory.name : '';
     const feedData = RssFeedByCategory(slug);
 
     const reversedData = feedData.reverse();
@@ -32,12 +32,11 @@ const SideContentSpecific = ({category}) =>{
     return(
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div className="sidebar">
-
                 <div className="widget">
-                    <h2 className="widget-title">Cùng chuyên mục</h2>
+                    <h2 className="widget-title">TIN NỔI BẬT</h2>
                     <div className="trend-videos">
                         <div className="blog-list-widget">
-                            {finalData.map((item, itemIndex) => {
+                            {feedData.slice(0, 4).map((item, itemIndex) => {
                                 return (
                                     <div key={itemIndex} className="list-group">
                                         <Link to="/news_details"
@@ -53,16 +52,14 @@ const SideContentSpecific = ({category}) =>{
                                 )
                             })}
                         </div>
-
                         <hr className="invis"/>
-
                     </div>
                 </div>
 
                 <div className="widget">
-                    <h2 className="widget-title">Tin tức phổ biến</h2>
+                    <h2 className="widget-title">CÙNG CHUYÊN MỤC</h2>
                     <div className="blog-list-widget">
-                        {feedData.slice(0, 3).map((item, itemIndex) => {
+                        {finalData.map((item, itemIndex) => {
                             return (
                                 <div key={itemIndex} className="list-group">
                                     <Link to="/news_details"
@@ -81,7 +78,7 @@ const SideContentSpecific = ({category}) =>{
                 </div>
 
                 <div className="widget">
-                    <h2 className="widget-title">Theo dõi</h2>
+                    <h2 className="widget-title">THEO DÕI</h2>
 
                     <div className="row text-center">
                         <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -117,4 +114,4 @@ const SideContentSpecific = ({category}) =>{
         </div>
     );
 }
-export default SideContentSpecific;
+export default SideContentDetail;
