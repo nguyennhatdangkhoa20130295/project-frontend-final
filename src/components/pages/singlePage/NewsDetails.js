@@ -10,9 +10,10 @@ import ScrollToTop from "../../common/ScrollToTop";
 const NewsDetails = () => {
     const {link} = useParams();
     console.log(link)
-    // Dynamic Title
-    TabTitle('Chi tiết bài báo');
     const data = RssNewsDetails(link);
+
+    // Dynamic Title
+    TabTitle(`${data.title}`);
 
     return (
         <>
@@ -46,14 +47,14 @@ const NewsDetails = () => {
                                 <div className="blog-title-area">
                                     <div className="post-sharing">
                                         <ul className="list-inline">
-                                            <li><Link to="#" className="fb-button btn btn-primary"><i
-                                                className="fa fa-facebook"></i> <span className="down-mobile">Share on Facebook</span></Link>
+                                            <li>
+                                                <div className="fb-share-button"
+                                                     data-href="https://developers.facebook.com/docs/plugins/"
+                                                     data-layout="" data-size="">
+                                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" className="fb-button btn btn-primary"><i
+                                                        className="fa fa-facebook"></i> <span className="down-mobile">Share on Facebook</span></a>
+                                                </div>
                                             </li>
-                                            <li><Link to="#" className="tw-button btn btn-primary"><i
-                                                className="fa fa-twitter"></i> <span className="down-mobile">Tweet on Twitter</span></Link>
-                                            </li>
-                                            <li><Link to="#" className="gp-button btn btn-primary"><i
-                                                className="fa fa-google-plus"></i></Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -69,9 +70,7 @@ const NewsDetails = () => {
                                                     <Link to="/news_details" title="">
                                                         <img src="/assets/upload/tech_menu_04.jpg" alt=""
                                                              className="img-fluid"/>
-                                                        <div className="hovereffect">
-                                                            <span className=""></span>
-                                                        </div>
+                                                        <div className="hovereffect"/>
                                                     </Link>
                                                 </div>
                                                 <div className="blog-meta">
@@ -91,9 +90,7 @@ const NewsDetails = () => {
                                                     <a href="tech-single.html" title="">
                                                         <img src="/assets/upload/tech_menu_06.jpg" alt=""
                                                              className="img-fluid"/>
-                                                        <div className="hovereffect">
-                                                            <span className=""></span>
-                                                        </div>
+                                                        <div className="hovereffect"/>
                                                     </a>
                                                 </div>
                                                 <div className="blog-meta">

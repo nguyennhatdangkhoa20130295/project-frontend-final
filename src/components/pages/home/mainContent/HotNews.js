@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 import Carousel from "../../../common/Carousel";
 import PostCard from "../../../common/PostCard";
 import axios from "axios";
-import BigCards from "../../../common/BigCards";
-import SmallCard from "../../../common/SmallCard";
 
 const HotNews = () => {
     const [rssUrl, setRssUrl] = useState("");
