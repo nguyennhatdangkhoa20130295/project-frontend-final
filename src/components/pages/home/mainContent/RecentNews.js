@@ -32,11 +32,12 @@ export default function RecentNews() {
         }
     };
     useEffect(() => {
-        setRssUrl("https://thethao247.vn/bong-da.rss");
+        setRssUrl("https://thethao247.vn/trang-chu.rss");
     }, []);
     getRss();
 
     return (
+
         <section className="section">
             <div className="container">
                 <div className="row">

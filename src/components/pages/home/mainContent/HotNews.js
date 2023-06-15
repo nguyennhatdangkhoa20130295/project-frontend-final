@@ -18,7 +18,7 @@ const HotNews = () => {
                 image: el.querySelector("description").innerHTML.match(/src="([^"]*)"/)[1],
                 description: el.querySelector("description").innerHTML.replace("<![CDATA[", "").replace("]]>", "").replace(/<img[^>]*>/g, "").replace(/<a[^>]*>/g, "").replace(/<\/a>/g, ""),
             }));
-            // get 5 items
+            // get 3 items
             feedItems.length = 3;
             setItems(feedItems);
         } catch (error) {
