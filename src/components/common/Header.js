@@ -15,8 +15,14 @@ const Header = () => {
     const {category} = useParams();
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [feedData, setFeedData] = useState([]);
     const categories = categoriesData;
+    console.log(selectedCategory)
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
     const fetchRssData = async (slug) => {
         try {
             const response = await axios.get(`/api/${slug}.rss`);
@@ -66,6 +72,7 @@ const Header = () => {
                                                     setActiveCategory(category.slug);
                                                     setActiveSubcategory(category.subcategories[0].slug);
                                                 }}
+                                                onClick={() => handleCategoryClick(category.slug)}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                                                 <Link className="nav-link dropdown-toggle"
                                                       to={`/category/${category.slug}`}
@@ -104,7 +111,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to={`/news_details/${link}`}
+                                                                                                        to={`/news_details/${category.slug}/${link}`}
                                                                                                         title="">
                                                                                                         <img
                                                                                                             src={item.description[0].match(/src="(.*?)"/)[1]}
@@ -119,7 +126,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="blog-meta">
                                                                                                     <h4><Link
-                                                                                                        to={`/news_details/${link}`}
+                                                                                                        to={`/news_details/${category.slug}/${link}`}
                                                                                                         title="">{item.title[0]}</Link>
                                                                                                     </h4>
                                                                                                 </div>
@@ -143,7 +150,7 @@ const Header = () => {
                                         );
                                     } else {
                                         return (
-                                            <li key={categoryIndex} className="nav-item">
+                                            <li key={categoryIndex} onClick={() => handleCategoryClick(category.slug)} className="nav-item">
                                                 <Link className="nav-link"
                                                       to={`/category/${category.slug}`}>{category.name}</Link>
                                             </li>

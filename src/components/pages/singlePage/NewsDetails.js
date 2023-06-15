@@ -1,16 +1,19 @@
 import React from "react";
+import SideContents from "../home/mainContent/SideContents";
 import {Link, useParams} from "react-router-dom";
 import {TabTitle} from "../../../utils/DynamicTitle";
 import RssNewsDetails from "../../../rss/RssNewsDetails";
 import "../singlePage/NewsDetail.css"
 import CommentBlog from "../../common/CommentBlog";
 import ScrollToTop from "../../common/ScrollToTop";
-import RelativeNews from "./RelativeNews";
-import SideContentDetail from "./mainContent/SideContentDetail";
+import {findCategoryBySlug} from "./mainContent/MainContent";
+import {categoriesData} from "../../../category_data/CategoryList";
 
 const NewsDetails = () => {
-    const {link} = useParams();
-    console.log(link)
+    const {slug, link} = useParams();
+    const selectedCategory = findCategoryBySlug(categoriesData, slug);
+    const parentCategory = selectedCategory ? selectedCategory.name :
+        console.log(link)
     const data = RssNewsDetails(link);
 
     // Dynamic Title
@@ -26,11 +29,12 @@ const NewsDetails = () => {
                                 <div className="blog-title-area">
                                     <ol className="breadcrumb hidden-xs-down">
                                         <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
-                                        <li className="breadcrumb-item"><Link to="#">Thể thao</Link></li>
+                                        <li className="breadcrumb-item"><Link to="#">{parentCategory}</Link></li>
                                         <li className="breadcrumb-item active">{data.title}</li>
                                     </ol>
 
-                                    <span className="color-orange"><Link to="#" title="">Thể thao</Link></span>
+                                    <span className="color-orange"><Link to={`/category/${slug}`}
+                                                                         title="">{parentCategory}</Link></span>
 
                                     <h1 className="big_title">{data.title}</h1>
 
@@ -52,7 +56,9 @@ const NewsDetails = () => {
                                                 <div className="fb-share-button"
                                                      data-href="https://developers.facebook.com/docs/plugins/"
                                                      data-layout="" data-size="">
-                                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" className="fb-button btn btn-primary"><i
+                                                    <a target="_blank"
+                                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                       className="fb-button btn btn-primary"><i
                                                         className="fa fa-facebook"></i> <span className="down-mobile">Share on Facebook</span></a>
                                                 </div>
                                             </li>
@@ -61,12 +67,56 @@ const NewsDetails = () => {
                                 </div>
 
                                 <hr className="invis1"/>
-                                <RelativeNews slug="bong-da"/>
+
+                                <div className="custombox clearfix">
+                                    <h4 className="small-title">Có thể bạn quan tâm</h4>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <div className="blog-box">
+                                                <div className="post-media">
+                                                    <Link to="/news_details" title="">
+                                                        <img src="/assets/upload/tech_menu_04.jpg" alt=""
+                                                             className="img-fluid"/>
+                                                        <div className="hovereffect"/>
+                                                    </Link>
+                                                </div>
+                                                <div className="blog-meta">
+                                                    <h4><Link to="/news_details" title="">We are guests of
+                                                        ABC Design Studio</Link></h4>
+                                                    <small><a href="blog-category-01.html"
+                                                              title="">Trends</a></small>
+                                                    <small><a href="blog-category-01.html" title="">21 July,
+                                                        2017</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-lg-6">
+                                            <div className="blog-box">
+                                                <div className="post-media">
+                                                    <a href="tech-single.html" title="">
+                                                        <img src="/assets/upload/tech_menu_06.jpg" alt=""
+                                                             className="img-fluid"/>
+                                                        <div className="hovereffect"/>
+                                                    </a>
+                                                </div>
+                                                <div className="blog-meta">
+                                                    <h4><a href="tech-single.html" title="">Nostalgia at
+                                                        work with family</a></h4>
+                                                    <small><a href="blog-category-01.html" title="">News</a></small>
+                                                    <small><a href="blog-category-01.html" title="">20 July,
+                                                        2017</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <hr className="invis1"/>
                                 <CommentBlog/>
                             </div>
                         </div>
-                        <SideContentDetail slug="bong-da"/>
+                        {/*<SideContents/>*/}
                     </div>
                 </div>
                 <ScrollToTop/>

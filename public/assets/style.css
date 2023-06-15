@@ -314,6 +314,7 @@ a {
 .post-media img {
     width: 100%;
 }
+
 .box_top_category {
     margin-bottom: 15px;
 }
@@ -431,28 +432,34 @@ div.tab button:hover {
     padding: 1.5rem 1.5rem 0;
     width: 80%;
 }
-.form-control{
+
+.form-control {
     border-radius: 7px;
     border: 1.5px solid #E3E6ED;
 }
-input.form-control:focus{
+
+input.form-control:focus {
     box-shadow: none;
     border: 1.5px solid #E3E6ED;
     background-color: #F7F8FD;
     letter-spacing: 1px;
 }
-.btn-primary{
-    background-color: #5878FF!important;
+
+.btn-primary {
+    background-color: #5878FF !important;
     border-radius: 7px;
 }
-.btn-primary:focus{
+
+.btn-primary:focus {
     box-shadow: none;
 }
-.search{
+
+.search {
     scale: 0.9;
     width: 50%;
 }
-.searchBtn{
+
+.searchBtn {
     border-radius: 0 7px 7px 0 !important;
     background: #FF6347 !important;
 }
@@ -462,7 +469,7 @@ input.form-control:focus{
 **************************************/
 
 .section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     display: block;
     position: relative;
     background-color: #ffffff;
@@ -666,7 +673,7 @@ input.form-control:focus{
 
 .footer.wb .hovereffect {
     opacity: 0.1;
-    background-color: rgba(0, 0, 0, 0.0.1);
+    background-color: rgba(0, 0, 0, 0.0 .1);
 }
 
 .demos h4 a {
@@ -1223,6 +1230,7 @@ hr.invis3 {
 
 .shadoweffect {
     position: absolute;
+    top: 0;
     opacity: 0;
     left: 0;
     right: 0;
@@ -1230,7 +1238,7 @@ hr.invis3 {
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 30%);
     background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 30%);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 30%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
@@ -1269,6 +1277,7 @@ hr.invis3 {
 
 .hovereffect {
     position: absolute;
+    top: 0;
     opacity: 0;
     left: 0;
     right: 0;
@@ -1285,7 +1294,7 @@ hr.invis3 {
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
     background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);
 }
 
 .post-media:hover .hovereffect span::before,
@@ -1328,7 +1337,8 @@ hr.invis3 {
 }
 
 .blog-list .blog-meta.big-meta h4 {
-    margin-left: -5%;
+    margin-left: -20%;
+    margin-top: 1rem;
     background-color: #ffffff;
     padding: 1rem 1.5rem 1rem;
 }

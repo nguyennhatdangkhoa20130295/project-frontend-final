@@ -4,8 +4,10 @@ import {parseString} from 'xml2js';
 
 const RssFeedByCategory = (slug) => {
     const [feedData, setFeedData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         const fetchRssFeed = async () => {
             try {
                 const url = `/api/${slug}.rss`;
@@ -20,7 +22,13 @@ const RssFeedByCategory = (slug) => {
                             const description = item.description[0].replace(/<\/?[^>]+(>|$)/g, '');
                             const imageUrl = item.description[0].match(/src="(.*?)"/)[1];
                             // const newImageUrl = imageUrl.replace("360x230", "1080x716");
-                            const formatter = {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'};
+                            const formatter = {
+                                day: 'numeric',
+                                month: 'numeric',
+                                year: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric'
+                            };
                             const publishedDate = new Date(item.pubDate[0]).toLocaleDateString('en-US', formatter);
 
                             return {
@@ -32,9 +40,34 @@ const RssFeedByCategory = (slug) => {
                                 guid: item.guid[0],
                             };
                         });
-                        setFeedData(items);
+                        const storedData = localStorage.getItem('rssFeedData');
+                        let parsedData = storedData ? JSON.parse(storedData) : {};
+
+                        // Kiểm tra xem danh mục đã tồn tại hay chưa
+                        if (parsedData[slug]) {
+                            // Danh mục đã tồn tại, kiểm tra và thêm những mục chưa tồn tại
+                            const existingItems = parsedData[slug];
+
+                            const newItems = items.filter(
+                                (item) => !existingItems.some((existingItem) => existingItem.guid === item.guid)
+                            );
+
+                            if (newItems.length > 0) {
+                                parsedData[slug].unshift(...newItems);
+                                localStorage.setItem('rssFeedData', JSON.stringify(parsedData));
+                            }
+
+                            setFeedData(parsedData[slug]);
+                        } else {
+                            // Danh mục chưa tồn tại, lưu trữ dữ liệu vào localStorage
+                            parsedData[slug] = items;
+                            localStorage.setItem('rssFeedData', JSON.stringify(parsedData));
+
+                            setFeedData(items);
+                        }
                     }
                 });
+                setIsLoading(false);
             } catch (error) {
                 console.error(error);
             }
@@ -43,6 +76,6 @@ const RssFeedByCategory = (slug) => {
         fetchRssFeed();
     }, [slug]);
 
-    return feedData;
+    return {feedData, isLoading};
 }
 export default RssFeedByCategory;
