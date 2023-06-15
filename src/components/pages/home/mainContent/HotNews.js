@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Carousel from "../../../common/Carousel";
-import PostCard from "../../../common/PostCard";
 import axios from "axios";
 
 const HotNews = () => {
@@ -27,7 +26,7 @@ const HotNews = () => {
         }
     };
     useEffect(() => {
-        setRssUrl("https://thethao247.vn/v-league-c15.rss");
+        setRssUrl("https://thethao247.vn/u23-dong-nam-a-c256.rss");
     }, []);
     getRss();
     return (

@@ -34,13 +34,36 @@ const SideContentSpecific = ({category}) =>{
             <div className="sidebar">
 
                 <div className="widget">
+                    <h2 className="widget-title">Tin tức phổ biến</h2>
+                    <div className="blog-list-widget">
+                        {feedData.slice(0, 3).map((item, itemIndex) => {
+                            const link = item.link.replace('https://thethao247.vn/', '');
+                            return (
+                                <div key={itemIndex} className="list-group">
+                                    <Link to={`/news_details/${encodeURIComponent(link)}`}
+                                          className="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div className="w-100 justify-content-between">
+                                            <img src={item.imageUrl} alt=""
+                                                 className="img-fluid float-left"/>
+                                            <h5 className="mb-1">{item.title}</h5>
+                                            <small>{item.pubDate}</small>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
+                <div className="widget">
                     <h2 className="widget-title">Cùng chuyên mục</h2>
                     <div className="trend-videos">
                         <div className="blog-list-widget">
                             {finalData.map((item, itemIndex) => {
+                                const link = item.link.replace('https://thethao247.vn/', '');
                                 return (
                                     <div key={itemIndex} className="list-group">
-                                        <Link to="/news_details"
+                                        <Link to={`/news_details/${encodeURIComponent(link)}`}
                                               className="list-group-item list-group-item-action flex-column align-items-start">
                                             <div className="w-100 justify-content-between">
                                                 <img src={item.imageUrl} alt=""
@@ -56,27 +79,6 @@ const SideContentSpecific = ({category}) =>{
 
                         <hr className="invis"/>
 
-                    </div>
-                </div>
-
-                <div className="widget">
-                    <h2 className="widget-title">Tin tức phổ biến</h2>
-                    <div className="blog-list-widget">
-                        {feedData.slice(0, 3).map((item, itemIndex) => {
-                            return (
-                                <div key={itemIndex} className="list-group">
-                                    <Link to="/news_details"
-                                          className="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="w-100 justify-content-between">
-                                            <img src={item.imageUrl} alt=""
-                                                 className="img-fluid float-left"/>
-                                            <h5 className="mb-1">{item.title}</h5>
-                                            <small>{item.pubDate}</small>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )
-                        })}
                     </div>
                 </div>
 

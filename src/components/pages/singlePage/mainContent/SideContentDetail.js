@@ -37,9 +37,10 @@ const SideContentDetail = ({slug}) =>{
                     <div className="trend-videos">
                         <div className="blog-list-widget">
                             {feedData.slice(0, 4).map((item, itemIndex) => {
+                                const link = item.link.replace('https://thethao247.vn/', '');
                                 return (
                                     <div key={itemIndex} className="list-group">
-                                        <Link to="/news_details"
+                                        <Link to={`/news_details/${encodeURIComponent(link)}`}
                                               className="list-group-item list-group-item-action flex-column align-items-start">
                                             <div className="w-100 justify-content-between">
                                                 <img src={item.imageUrl} alt=""
@@ -60,9 +61,10 @@ const SideContentDetail = ({slug}) =>{
                     <h2 className="widget-title">CÙNG CHUYÊN MỤC</h2>
                     <div className="blog-list-widget">
                         {finalData.map((item, itemIndex) => {
+                            const link = item.link.replace('https://thethao247.vn/', '');
                             return (
                                 <div key={itemIndex} className="list-group">
-                                    <Link to="/news_details"
+                                    <Link to={`/news_details/${encodeURIComponent(link)}`}
                                           className="list-group-item list-group-item-action flex-column align-items-start">
                                         <div className="w-100 justify-content-between">
                                             <img src={item.imageUrl} alt=""
