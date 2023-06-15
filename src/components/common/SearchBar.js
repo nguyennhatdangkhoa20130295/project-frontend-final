@@ -34,7 +34,7 @@ const SearchBar = ({category}) => {
 
     useEffect(() => {
         const dataSearch = feedData.filter(item =>
-            item.title.toLowerCase().includes(search.toLowerCase())
+            item.title.join('').toLowerCase().includes(search.toLowerCase())
         );
         setSearchResults(dataSearch);
     }, [search]);

@@ -8,6 +8,8 @@ import CommentBlog from "../../common/CommentBlog";
 import ScrollToTop from "../../common/ScrollToTop";
 import {findCategoryBySlug} from "./mainContent/MainContent";
 import {categoriesData} from "../../../category_data/CategoryList";
+import SpeechNews from "../../common/SpeechNews";
+import Speech from "react-speech";
 
 const NewsDetails = () => {
     const {slug, link} = useParams();
@@ -41,8 +43,9 @@ const NewsDetails = () => {
                                     <div className="blog-meta big-meta">
                                         <small>{data.publishedDate}</small>
                                     </div>
-
+                                    <SpeechNews news={data.content}/>
                                 </div>
+
 
                                 <div className="blog-content">
                                     <div id="content_detail" className="txt_content"
