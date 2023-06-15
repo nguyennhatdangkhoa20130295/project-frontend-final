@@ -76,7 +76,7 @@ export default function RecentNews() {
                         <hr className="invis"/>
 
                     </div>
-                    <SideContents/>
+                    <SideContents data={items}/>
                 </div>
             </div>
             <ScrollToTop/>

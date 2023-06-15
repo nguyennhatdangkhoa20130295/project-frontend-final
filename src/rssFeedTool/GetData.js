@@ -1,7 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 
-export default function RssFeed(rssUrl) {
+const RssFeed = (rssUrl) => {
     const [items, setItems] = useState([]);
     const getRss = async () => {
         try {
@@ -19,9 +19,13 @@ export default function RssFeed(rssUrl) {
                 pubDate: new Date(el.querySelector("pubDate").innerHTML).toLocaleDateString('en-US', formatter),
                 author: el.querySelector("creator").innerHTML
             }));
+            // get 5 items
+            feedItems.length = 3;
             setItems(feedItems);
         } catch (error) {
             console.log(error);
         }
     };
+    return items;
 }
+export default RssFeed;
