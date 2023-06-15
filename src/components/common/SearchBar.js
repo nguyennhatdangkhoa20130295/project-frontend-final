@@ -21,7 +21,7 @@ const SearchBar = ({category}) => {
     const selectedCategory = findCategoryBySlug(categories, category);
 
     const slug = selectedCategory ? selectedCategory.slug : '';
-    const feedData = RssFeedByCategory(slug);
+    const {feedData,isLoading} = RssFeedByCategory(slug);
     console.log(feedData);
 
     // SearchBar
