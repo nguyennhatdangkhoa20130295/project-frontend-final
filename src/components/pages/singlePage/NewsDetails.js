@@ -6,10 +6,14 @@ import RssNewsDetails from "../../../rss/RssNewsDetails";
 import "../singlePage/NewsDetail.css"
 import CommentBlog from "../../common/CommentBlog";
 import ScrollToTop from "../../common/ScrollToTop";
+import {findCategoryBySlug} from "./mainContent/MainContent";
+import {categoriesData} from "../../../category_data/CategoryList";
 
 const NewsDetails = () => {
-    const {link} = useParams();
-    console.log(link)
+    const {slug, link} = useParams();
+    const selectedCategory = findCategoryBySlug(categoriesData, slug);
+    const parentCategory = selectedCategory ? selectedCategory.name :
+        console.log(link)
     const data = RssNewsDetails(link);
 
     // Dynamic Title
@@ -25,11 +29,12 @@ const NewsDetails = () => {
                                 <div className="blog-title-area">
                                     <ol className="breadcrumb hidden-xs-down">
                                         <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
-                                        <li className="breadcrumb-item"><Link to="#">Thể thao</Link></li>
+                                        <li className="breadcrumb-item"><Link to="#">{parentCategory}</Link></li>
                                         <li className="breadcrumb-item active">{data.title}</li>
                                     </ol>
 
-                                    <span className="color-orange"><Link to="#" title="">Thể thao</Link></span>
+                                    <span className="color-orange"><Link to={`/category/${slug}`}
+                                                                         title="">{parentCategory}</Link></span>
 
                                     <h1 className="big_title">{data.title}</h1>
 
@@ -51,7 +56,9 @@ const NewsDetails = () => {
                                                 <div className="fb-share-button"
                                                      data-href="https://developers.facebook.com/docs/plugins/"
                                                      data-layout="" data-size="">
-                                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" className="fb-button btn btn-primary"><i
+                                                    <a target="_blank"
+                                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                       className="fb-button btn btn-primary"><i
                                                         className="fa fa-facebook"></i> <span className="down-mobile">Share on Facebook</span></a>
                                                 </div>
                                             </li>
