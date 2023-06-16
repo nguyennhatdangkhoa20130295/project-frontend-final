@@ -1,15 +1,15 @@
-
 import {useState, useEffect} from "react";
 import axios from 'axios';
 import cheerio from 'cheerio';
 
 const RssNewsDetails = (link) => {
     const [articleContent, setArticleContent] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchArticleContent = async () => {
             try {
-
+                setIsLoading(true);
                 const url = `/api/${link}`;
                 const response = await axios.get(url);
                 const html = response.data;
@@ -20,11 +20,11 @@ const RssNewsDetails = (link) => {
                 $('div.ad-label').remove();
                 $('p.expNoEdit').remove();
                 const images = $('img');
-                images.each((index, element)=>{
+                images.each((index, element) => {
                     const $element = $(element);
                     const dataSrc = $element.attr('data-src');
 
-                    if(dataSrc){
+                    if (dataSrc) {
                         $element.attr('src', dataSrc);
                     }
                 })
@@ -45,11 +45,13 @@ const RssNewsDetails = (link) => {
                 setArticleContent({title, publishedDate, content});
             } catch (error) {
                 console.error(error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
         fetchArticleContent();
     }, [link]);
-    return articleContent;
+    return {articleContent, isLoading};
 };
 export default RssNewsDetails;

@@ -42,6 +42,7 @@ const RssFeedByCategory = (slug) => {
                         });
                         const storedData = localStorage.getItem('rssFeedData');
                         let parsedData = storedData ? JSON.parse(storedData) : {};
+                        console.log(parsedData['bong-da-quoc-te-c2'])
 
                         // Kiểm tra xem danh mục đã tồn tại hay chưa
                         if (parsedData[slug]) {
