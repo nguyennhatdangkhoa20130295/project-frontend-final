@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import SideContents from "../home/mainContent/SideContents";
 import {Link, useParams} from "react-router-dom";
 import {TabTitle} from "../../../utils/DynamicTitle";
@@ -8,37 +8,23 @@ import CommentBlog from "../../common/CommentBlog";
 import ScrollToTop from "../../common/ScrollToTop";
 import {findCategoryBySlug} from "./mainContent/MainContent";
 import {categoriesData} from "../../../category_data/CategoryList";
-import SideContentSpecific from "./mainContent/SideContentSpecific";
-import RssFeedByCategory from "../../../rss/RssFeedByCategory";
-import RelativeNews from "./RelativeNews";
 import SpeechNews from "../../common/SpeechNews";
+import Speech from "react-speech";
+import TextToSpeech from "../../common/Speech";
 
 const NewsDetails = () => {
     const {slug, link} = useParams();
-
     const selectedCategory = findCategoryBySlug(categoriesData, slug);
-    const parentCategory = selectedCategory ? selectedCategory.name : '';
-    console.log(link);
+    const parentCategory = selectedCategory ? selectedCategory.name :
+        console.log(link)
+    const data = RssNewsDetails(link);
 
-    const {articleContent, isLoading} = RssNewsDetails(link);
-    const {feedData, loading} = RssFeedByCategory(slug);
-
-    const randomIndex = Math.floor(Math.random() * feedData.length);
-    const suggestList = feedData.slice(randomIndex, randomIndex + 2);
-
-    console.log(feedData)
     // Dynamic Title
-    TabTitle(`${articleContent.title}`);
-
-    useEffect(() => {
-        if (!isLoading) {
-            window.scrollTo(0, 0);
-        }
-    }, [isLoading]);
+    TabTitle(`${data.title}`);
 
     return (
         <>
-            {isLoading ? (<div className="loading"></div>) : (<section className="section single-wrapper">
+            <section className="section single-wrapper">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -46,28 +32,27 @@ const NewsDetails = () => {
                                 <div className="blog-title-area">
                                     <ol className="breadcrumb hidden-xs-down">
                                         <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
-                                        <li className="breadcrumb-item"><Link
-                                            to={`/category/${encodeURIComponent(slug)}`}>{!parentCategory ? 'Bóng đá' : parentCategory}</Link>
-                                        </li>
-                                        <li className="breadcrumb-item active">{articleContent.title}</li>
+                                        <li className="breadcrumb-item"><Link to="#">{parentCategory}</Link></li>
+                                        <li className="breadcrumb-item active">{data.title}</li>
                                     </ol>
 
-                                    <span className="color-orange"><Link to={`/category/${encodeURIComponent(slug)}`}
-                                                                         title="">{!parentCategory ? 'Bóng đá' : parentCategory}</Link></span>
+                                    <span className="color-orange"><Link to={`/category/${slug}`}
+                                                                         title="">{parentCategory}</Link></span>
 
-                                    <h1 className="big_title">{articleContent.title}</h1>
+                                    <h1 className="big_title">{data.title}</h1>
 
                                     <div className="blog-meta big-meta">
-                                        <small>{articleContent.publishedDate}</small>
+                                        <small>{data.publishedDate}</small>
                                     </div>
-
-                                    <SpeechNews news={articleContent.content}/>
+                                    {/*<SpeechNews news={data.content}/>*/}
+                                    <TextToSpeech text={data.content}/>
                                 </div>
+
 
 
                                 <div className="blog-content">
                                     <div id="content_detail" className="txt_content"
-                                         dangerouslySetInnerHTML={{__html: articleContent.content}}></div>
+                                         dangerouslySetInnerHTML={{__html: data.content}}></div>
                                 </div>
 
                                 <div className="blog-title-area">
@@ -80,8 +65,7 @@ const NewsDetails = () => {
                                                     <a target="_blank"
                                                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                                                        className="fb-button btn btn-primary"><i
-                                                        className="fa fa-facebook"></i> <span
-                                                        className="down-mobile">Share on Facebook</span></a>
+                                                        className="fa fa-facebook"></i> <span className="down-mobile">Share on Facebook</span></a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -93,27 +77,44 @@ const NewsDetails = () => {
                                 <div className="custombox clearfix">
                                     <h4 className="small-title">Có thể bạn quan tâm</h4>
                                     <div className="row">
-                                        {suggestList.map((item, index) => {
-                                            const link = item.link.replace('https://thethao247.vn/', '');
-                                            return (
-                                                <div key={index} className="col-lg-6">
-                                                    <div className="blog-box">
-                                                        <div className="post-media">
-                                                            <Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`} title="">
-                                                                <img src={item.imageUrl} alt=""
-                                                                     className="img-fluid"/>
-                                                                <div className="hovereffect"/>
-                                                            </Link>
-                                                        </div>
-                                                        <div className="blog-meta">
-                                                            <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
-                                                                      title="">{item.title}</Link></h4>
-                                                            <small>{item.pubDate}</small>
-                                                        </div>
-                                                    </div>
+                                        <div className="col-lg-6">
+                                            <div className="blog-box">
+                                                <div className="post-media">
+                                                    <Link to="/news_details" title="">
+                                                        <img src="/assets/upload/tech_menu_04.jpg" alt=""
+                                                             className="img-fluid"/>
+                                                        <div className="hovereffect"/>
+                                                    </Link>
                                                 </div>
-                                            );
-                                        })}
+                                                <div className="blog-meta">
+                                                    <h4><Link to="/news_details" title="">We are guests of
+                                                        ABC Design Studio</Link></h4>
+                                                    <small><a href="blog-category-01.html"
+                                                              title="">Trends</a></small>
+                                                    <small><a href="blog-category-01.html" title="">21 July,
+                                                        2017</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-lg-6">
+                                            <div className="blog-box">
+                                                <div className="post-media">
+                                                    <a href="tech-single.html" title="">
+                                                        <img src="/assets/upload/tech_menu_06.jpg" alt=""
+                                                             className="img-fluid"/>
+                                                        <div className="hovereffect"/>
+                                                    </a>
+                                                </div>
+                                                <div className="blog-meta">
+                                                    <h4><a href="tech-single.html" title="">Nostalgia at
+                                                        work with family</a></h4>
+                                                    <small><a href="blog-category-01.html" title="">News</a></small>
+                                                    <small><a href="blog-category-01.html" title="">20 July,
+                                                        2017</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -121,11 +122,11 @@ const NewsDetails = () => {
                                 <CommentBlog/>
                             </div>
                         </div>
-                        <SideContents data={feedData} slug={slug}/>
+                        {/*<SideContents/>*/}
                     </div>
                 </div>
                 <ScrollToTop/>
-            </section>)}
+            </section>
         </>
     )
 }
