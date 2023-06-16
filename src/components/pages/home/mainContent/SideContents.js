@@ -16,6 +16,7 @@ const SideContents = (props) => {
                                     <VideoPlayer
                                         source="https://youtu.be/o_R10T59ZPg"
                                         poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg"
+
                                     />
                                     <span className="videohover"></span>
                                 </div>

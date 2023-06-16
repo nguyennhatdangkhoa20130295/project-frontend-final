@@ -1,6 +1,8 @@
-import Speech from "react-speech";
+
 import React from "react";
+import Speech from "react-speech";
 const SpeechNews = ({news}) => {
+
     return (
         // create button play
             <Speech
@@ -14,9 +16,11 @@ const SpeechNews = ({news}) => {
                     pitch="1"
                     rate="0.8"
                     volume="0.8"
+                    voice = "Google tiếng Việt"
                     lang="vi-VN"
             />
-        // create speech
+        //
     );
 }
+
 export default SpeechNews;

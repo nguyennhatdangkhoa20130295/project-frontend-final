@@ -16,7 +16,7 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Tin nóng</a></span>
-                                        <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}>{item.title}</Link>
+                                        <h4><Link to={`/news_details/bong-da-viet-nam-c1/${link}`}>{item.title}</Link>
                                         </h4>
                                         <small>{item.pubDate}</small>
                                     </div>
@@ -35,7 +35,8 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Tin nóng</a></span>
-                                        <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}>{item.title}</Link></h4>
+                                        <h4><Link to={`/news_details/${encodeURIComponent(link)}`}>{item.title}</Link>
+                                        </h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>

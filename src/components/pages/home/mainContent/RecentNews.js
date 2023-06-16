@@ -37,6 +37,7 @@ export default function RecentNews() {
     getRss();
 
     return (
+
         <section className="section">
             <div className="container">
                 <div className="row">
@@ -48,14 +49,12 @@ export default function RecentNews() {
                             </div>
                             {items.map((item, itemIndex) => {
                                 const link = item.link.replace('https://thethao247.vn/', '');
-                                const clearRssUrl = rssUrl.replace('https://thethao247.vn/', '');
-                                const slug = clearRssUrl.replace('.rss', '');
                                 return (
                                     <div key={itemIndex} className="blog-list clearfix">
                                         <div className="blog-box row">
                                             <div className="col-md-4">
                                                 <div className="post-media">
-                                                    <Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`} title="">
+                                                    <Link to={`/news_details/trang-chu/${link}`} title="">
                                                         <img src={item.image} alt="/" className="img-fluid"/>
                                                         <div className="hovereffect"></div>
                                                     </Link>
@@ -63,8 +62,7 @@ export default function RecentNews() {
                                             </div>
 
                                             <div className="blog-meta big-meta col-md-8">
-                                                <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
-                                                          title="">{item.title}</Link></h4>
+                                                <h4><Link to={`/news_details/trang-chu/${link}`} title="">{item.title}</Link></h4>
                                                 <p>{item.description}</p>
                                                 <small>{item.pubDate}</small>
                                             </div>
