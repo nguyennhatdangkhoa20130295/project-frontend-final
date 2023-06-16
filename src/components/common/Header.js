@@ -3,26 +3,63 @@ import {Link} from "react-router-dom";
 import {categoriesData} from "../../category_data/CategoryList";
 import axios from "axios";
 import {parseString} from "xml2js";
-import SearchBar from "./SearchBar";
-import {useParams} from "react-router-dom";
+import "./Search.css";
+import RssFeedByCategory from "../../rss/RssFeedByCategory";
 
-export function openCategory(evt, catName, setActiveSubcategory) {
-    evt.preventDefault();
-    setActiveSubcategory(catName);
-}
 
 const Header = () => {
-    const {category} = useParams();
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
-    const [feedData, setFeedData] = useState([]);
+    const [articleData, setArticleData] = useState([]);
     const categories = categoriesData;
     console.log(selectedCategory)
 
+    const openCategory = (evt, catName) => {
+        evt.preventDefault();
+        setActiveSubcategory(catName);
+        setSelectedCategory(catName);
+    }
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
+        setShowModal(false);
     };
+    const [search, setSearch] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleChange = (event) => {
+        setSearch(event.target.value);
+    };
+
+    const {feedData, isLoading} = RssFeedByCategory(!selectedCategory ? 'trang-chu' : selectedCategory);
+
+    useEffect(() => {
+        if (search.trim() === '') {
+            setSearchResults([]);
+            return;
+        }
+        const dataSearch = feedData.filter(item =>
+            item.title.toLowerCase().includes(search.toLowerCase())
+        );
+        setSearchResults(dataSearch);
+    }, [search, feedData]);
+
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setShowModal(true);
+    };
+    const handleClickOutside = (event) => {
+        if (event.target.classList.contains('modal-overlay')) {
+            setShowModal(false);
+            setSearch('');
+        }
+    };
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setSearch('');
+    }
+
     const fetchRssData = async (slug) => {
         try {
             const response = await axios.get(`/api/${slug}.rss`);
@@ -33,7 +70,7 @@ const Header = () => {
                     return;
                 }
                 const items = result.rss.channel[0].item.slice(0, 4);
-                setFeedData(items);
+                setArticleData(items);
                 console.log(items)
             });
         } catch (error) {
@@ -75,7 +112,7 @@ const Header = () => {
                                                 onClick={() => handleCategoryClick(category.slug)}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                                                 <Link className="nav-link dropdown-toggle"
-                                                      to={`/category/${category.slug}`}
+                                                      to={`/category/${encodeURIComponent(category.slug)}`}
                                                       id={`dropdown${categoryIndex}`}
                                                       data-toggle="dropdown" aria-haspopup="true"
                                                       aria-expanded="false">{category.name}</Link>
@@ -89,7 +126,7 @@ const Header = () => {
                                                                         return (
                                                                             <button key={subcategoryIndex}
                                                                                     className={activeSubcategory === subcategory.slug ? 'tablinks active' : 'tablinks'}
-                                                                                    onClick={(event) => openCategory(event, subcategory.slug, setActiveSubcategory)}>{subcategory.name}
+                                                                                    onClick={(event) => openCategory(event, subcategory.slug)}>{subcategory.name}
                                                                             </button>
                                                                         );
                                                                     })}
@@ -102,7 +139,7 @@ const Header = () => {
                                                                                  id={subCategoryId}
                                                                                  className={activeSubcategory === subcategory.slug ? 'tabcontent active' : 'tabcontent'}>
                                                                                 <div className="row">
-                                                                                    {feedData.map((item, itemIndex) => {
+                                                                                    {articleData.map((item, itemIndex) => {
                                                                                         const link = item.link[0].replace('https://thethao247.vn/', '');
                                                                                         return (<div key={itemIndex}
                                                                                                      className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
@@ -111,7 +148,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to={`/news_details/${category.slug}/${link}`}
+                                                                                                        to={`/news_details/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
                                                                                                         title="">
                                                                                                         <img
                                                                                                             src={item.description[0].match(/src="(.*?)"/)[1]}
@@ -126,7 +163,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="blog-meta">
                                                                                                     <h4><Link
-                                                                                                        to={`/news_details/${category.slug}/${link}`}
+                                                                                                        to={`/news_details/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
                                                                                                         title="">{item.title[0]}</Link>
                                                                                                     </h4>
                                                                                                 </div>
@@ -136,7 +173,7 @@ const Header = () => {
                                                                                 </div>
                                                                                 <Link className="nav-link"
                                                                                       style={{float: "right"}}
-                                                                                      to={`/category/${subcategory.slug}`}>Xem
+                                                                                      to={`/category/${encodeURIComponent(subcategory.slug)}`}>Xem
                                                                                     thêm</Link>
                                                                             </div>
                                                                         );
@@ -148,15 +185,18 @@ const Header = () => {
                                                 </ul>
                                             </li>
                                         );
-                                    } else {
-                                        return (
-                                            <li key={categoryIndex} onClick={() => handleCategoryClick(category.slug)} className="nav-item">
-                                                <Link className="nav-link"
-                                                      to={`/category/${category.slug}`}>{category.name}</Link>
-                                            </li>
-                                        )
-                                    }
-                                })
+                                    } else
+                                        {
+                                            return (
+                                                <li key={categoryIndex}
+                                                    onClick={() => handleCategoryClick(category.slug)}
+                                                    className="nav-item">
+                                                    <Link className="nav-link"
+                                                          to={`/category/${encodeURIComponent(category.slug)}`}>{category.name}</Link>
+                                                </li>
+                                            )
+                                        }
+                                    })
                                 }
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/contact">Chatbot</Link>
@@ -164,8 +204,40 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className="search">
-                            <SearchBar category={category}/>
+                            <form className="input-group">
+                                <input type="text" className="form-control" placeholder="Tìm kiếm tại đây"
+                                       value={search}
+                                       onFocus={handleOpenModal} onChange={handleChange}/>
+                                <div className="input-group-append">
+                                    <button type="submit" className="btn btn-primary searchBtn"
+                                            style={{background: '#0091e5 !important'}}><i className="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
+                        {showModal && (
+                            <div className="modal-overlay" onClick={handleClickOutside}>
+                                <div className="modal_search">
+                                    {searchResults.map((item, index) => {
+                                        const link = item.link.replace('https://thethao247.vn/', '');
+                                        const slug = !selectedCategory ? 'trang-chu' : selectedCategory;
+                                        return (<div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
+                                            <div className="card p-0 overflow-hidden shadow">
+                                                <Link onClick={handleCloseModal}
+                                                      to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}><img
+                                                    src={item.imageUrl} alt={item.title}
+                                                    className="card-img-top"/></Link>
+                                                <div className="card-body">
+                                                    <h5><Link onClick={handleCloseModal}
+                                                              to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                              title="">{item.title}</Link></h5>
+                                                </div>
+                                            </div>
+                                        </div>);
+                                    })}
+                                </div>
+                            </div>
+                        )}
                     </nav>
                 </div>
             </header>
@@ -173,4 +245,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+    export default Header;

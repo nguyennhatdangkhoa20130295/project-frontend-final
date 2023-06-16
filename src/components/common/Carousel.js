@@ -5,6 +5,8 @@ function Carousel(props) {
     return (
         props.data.map((item, index) => {
             const link = item.link.replace('https://thethao247.vn/', '');
+            const clearRssUrl = props.slug.replace('https://thethao247.vn/', '');
+            const slug = clearRssUrl.replace('.rss', '');
             if (index === 0) {
                 return (
                     <div key={index} className="first-slot">
@@ -14,7 +16,7 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Tin nóng</a></span>
-                                        <h4><Link to={`/news_details/bong-da-viet-nam-c1/${link}`}>{item.title}</Link>
+                                        <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}>{item.title}</Link>
                                         </h4>
                                         <small>{item.pubDate}</small>
                                     </div>
@@ -33,8 +35,7 @@ function Carousel(props) {
                                 <div className="shadow-desc">
                                     <div className="blog-meta">
                                         <span className="bg-orange"><a title="">Tin nóng</a></span>
-                                        <h4><Link to={`/news_details/${encodeURIComponent(link)}`}>{item.title}</Link>
-                                        </h4>
+                                        <h4><Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}>{item.title}</Link></h4>
                                         <small>{item.pubDate}</small>
                                     </div>
                                 </div>
