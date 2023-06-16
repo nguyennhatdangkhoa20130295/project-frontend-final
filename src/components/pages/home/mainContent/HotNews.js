@@ -34,7 +34,7 @@ const HotNews = () => {
             <section className="section first-section">
                 <div className="container-fluid">
                     <div className="masonry-blog clearfix">
-                        <Carousel data={items}/>
+                        <Carousel data={items} slug={rssUrl}/>
                     </div>
                 </div>
             </section>
