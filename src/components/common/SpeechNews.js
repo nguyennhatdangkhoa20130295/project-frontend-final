@@ -19,4 +19,5 @@ const SpeechNews = ({news}) => {
         // create speech
     );
 }
+
 export default SpeechNews;
