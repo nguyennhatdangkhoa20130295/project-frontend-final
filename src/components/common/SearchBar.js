@@ -42,7 +42,7 @@ const SearchBar = ({category}) => {
     return (
         <section>
             <div className="row justify-content-center">
-                <form className="input-group">
+                <form className="input-group" style={{width:280}}>
                     <input type="text" className="form-control" placeholder="Tìm kiếm tại đây" value={search} onChange={handleChange}/>
                     <div className="input-group-append">
                         <button type="submit" className="btn btn-primary searchBtn"

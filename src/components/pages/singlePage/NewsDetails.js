@@ -10,6 +10,7 @@ import {findCategoryBySlug} from "./mainContent/MainContent";
 import {categoriesData} from "../../../category_data/CategoryList";
 import SpeechNews from "../../common/SpeechNews";
 import Speech from "react-speech";
+import TextToSpeech from "../../common/Speech";
 
 const NewsDetails = () => {
     const {slug, link} = useParams();
@@ -43,8 +44,10 @@ const NewsDetails = () => {
                                     <div className="blog-meta big-meta">
                                         <small>{data.publishedDate}</small>
                                     </div>
-                                    <SpeechNews news={data.content}/>
+                                    {/*<SpeechNews news={data.content}/>*/}
+                                    <TextToSpeech text={data.content}/>
                                 </div>
+
 
 
                                 <div className="blog-content">

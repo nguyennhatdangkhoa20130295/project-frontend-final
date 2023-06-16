@@ -59,7 +59,7 @@ const Header = () => {
                         <Link className="navbar-brand" to="/"><img
                             src="/assets/images/logo-header.png"
                             alt="logo header" width="200px" height="50px"/></Link>
-                        <div className="collapse navbar-collapse" id="navbarCollapse">
+                        <div className="collapse navbar-collapse" id="navbarCollapse" style={{width:1310}}>
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/">Trang chủ</Link>
@@ -158,6 +158,9 @@ const Header = () => {
                                     }
                                 })
                                 }
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/contact">Chatbot</Link>
+                                </li>
                             </ul>
                         </div>
                         <div className="search">
