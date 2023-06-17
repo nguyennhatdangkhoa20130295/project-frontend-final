@@ -1277,7 +1277,6 @@ hr.invis3 {
 
 .hovereffect {
     position: absolute;
-    top: 0;
     opacity: 0;
     left: 0;
     right: 0;
@@ -1337,8 +1336,7 @@ hr.invis3 {
 }
 
 .blog-list .blog-meta.big-meta h4 {
-    margin-left: -20%;
-    margin-top: 1rem;
+    margin-left: -5%;
     background-color: #ffffff;
     padding: 1rem 1.5rem 1rem;
 }
