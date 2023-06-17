@@ -228,7 +228,7 @@ const Header = () => {
                                                     src={item.imageUrl} alt={item.title}
                                                     className="card-img-top"/></Link>
                                                 <div className="card-body">
-                                                    <h5><Link onClick={handleCloseModal}
+                                                  cha  <h5><Link onClick={handleCloseModal}
                                                               to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                               title="">{item.title}</Link></h5>
                                                 </div>
@@ -244,5 +244,4 @@ const Header = () => {
         </>
     );
 }
-
-    export default Header;
+export default Header;

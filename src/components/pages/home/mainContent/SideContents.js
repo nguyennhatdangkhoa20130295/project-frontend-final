@@ -73,8 +73,9 @@ const SideContents = (props) => {
                             const link = item.link.replace('https://thethao247.vn/', '');
                             return (
                                 <div key={index} className="list-group">
-                                    <Link to={`/news_details/${encodeURIComponent(props.slug)}/${encodeURIComponent(link)}`}
-                                          className="list-group-item list-group-item-action flex-column align-items-start">
+                                    <Link
+                                        to={`/news_details/${encodeURIComponent(props.slug)}/${encodeURIComponent(link)}`}
+                                        className="list-group-item list-group-item-action flex-column align-items-start">
                                         <div className="w-100 justify-content-between">
                                             <img src={!item.image ? item.imageUrl : item.image} alt=""
                                                  className="img-fluid float-left"/>
