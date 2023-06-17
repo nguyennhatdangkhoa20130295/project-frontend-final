@@ -44,9 +44,8 @@ const RssFeedByCategory = (slug) => {
                         let parsedData = storedData ? JSON.parse(storedData) : {};
                         console.log(parsedData['bong-da-quoc-te-c2'])
 
-                        // Kiểm tra xem danh mục đã tồn tại hay chưa
                         if (parsedData[slug]) {
-                            // Danh mục đã tồn tại, kiểm tra và thêm những mục chưa tồn tại
+
                             const existingItems = parsedData[slug];
 
                             const newItems = items.filter(
@@ -60,7 +59,7 @@ const RssFeedByCategory = (slug) => {
 
                             setFeedData(parsedData[slug]);
                         } else {
-                            // Danh mục chưa tồn tại, lưu trữ dữ liệu vào localStorage
+
                             parsedData[slug] = items;
                             localStorage.setItem('rssFeedData', JSON.stringify(parsedData));
 

@@ -15,7 +15,7 @@ const RssNewsDetails = (link) => {
                 const html = response.data;
                 const $ = cheerio.load(html);
 
-                // Phân tích nội dung từ HTML sử dụng các selector CSS
+                // Phân tích nội dung từ HTML sử dụng các selector
                 $('div.explus_related_1404022217').remove();
                 $('div.ad-label').remove();
                 $('p.expNoEdit').remove();
