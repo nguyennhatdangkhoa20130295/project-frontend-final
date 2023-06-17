@@ -6,12 +6,12 @@ const TextToSpeech = ({ text }) => {
 
     useEffect(() => {
         const synth = window.speechSynthesis;
-        const u = new SpeechSynthesisUtterance(text);
-        u.voice = synth.getVoices()[5];
-        u.rate = 0.8;
-        u.pitch = 1;
-        u.volume = 0.8;
-        u.lang = "vi-VN";
+        const u = new SpeechSynthesisUtterance();
+        const parser = new DOMParser();
+        const parsedText = parser.parseFromString(text, "text/html").body.textContent;
+
+        u.text = parsedText;
+
         setUtterance(u);
 
         return () => {
@@ -28,7 +28,7 @@ const TextToSpeech = ({ text }) => {
 
         synth.speak(utterance);
 
-        setIsPaused(true);
+        setIsPaused(false);
     };
 
     const handlePause = () => {

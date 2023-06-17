@@ -198,9 +198,6 @@ const Header = () => {
                                         }
                                     })
                                 }
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/contact">Chatbot</Link>
-                                </li>
                             </ul>
                         </div>
                         <div className="search">
