@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -28,8 +29,8 @@ const Footer = () => {
 
                                 <div className="newsletter-widget text-left">
                                     <form className="form-inline">
-                                        <input type="text" className="form-control"
-                                               placeholder="Nhập địa chỉ email"/>
+                                        <input type="email" className="form-control"
+                                               placeholder="Nhập địa chỉ email" required="required"/>
                                         <button type="submit" className="btn btn-primary">Đăng ký</button>
                                     </form>
                                 </div>
@@ -42,11 +43,11 @@ const Footer = () => {
                             <h2 className="widget-title">Danh mục</h2>
                             <div className="link-widget">
                                 <ul>
-                                    <li><a href="#">Bóng đá Việt Nam</a></li>
-                                    <li><a href="#">Cup C1</a></li>
-                                    <li><a href="#">Bóng đá quốc tế</a></li>
-                                    <li><a href="#">Thể thao</a></li>
-                                    <li><a href="#">Esport</a></li>
+                                    <li><Link to={`/bong-da-viet-nam-c1`}>Bóng đá Việt Nam</Link></li>
+                                    <li><Link to={`/champions-league-c13`}>Cup C1</Link></li>
+                                    <li><Link to={`/bong-da-quoc-te-c2`}>Bóng đá quốc tế</Link></li>
+                                    <li><Link to={`/the-thao-tong-hop-c5`}>Thể thao</Link></li>
+                                    <li><Link to={`/esports-c180`}>Esports</Link></li>
                                 </ul>
                             </div>
                         </div>

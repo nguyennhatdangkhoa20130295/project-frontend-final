@@ -16,7 +16,7 @@ const buildBreadcrumb = (category) => {
         if (parentBreadcrumb) {
             breadcrumbItems.push(
                 <li key={category.parentCategory} className="breadcrumb-item"><Link
-                    to={`/category/${encodeURIComponent(category.parentCategory.slug)}`}>{category.parentCategory.name}</Link>
+                    to={`/${encodeURIComponent(category.parentCategory.slug)}`}>{category.parentCategory.name}</Link>
                 </li>
             );
         }
