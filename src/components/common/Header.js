@@ -112,7 +112,7 @@ const Header = () => {
                                                 onClick={() => handleCategoryClick(category.slug)}
                                                 className="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                                                 <Link className="nav-link dropdown-toggle"
-                                                      to={`/category/${encodeURIComponent(category.slug)}`}
+                                                      to={`/${encodeURIComponent(category.slug)}`}
                                                       id={`dropdown${categoryIndex}`}
                                                       data-toggle="dropdown" aria-haspopup="true"
                                                       aria-expanded="false">{category.name}</Link>
@@ -148,7 +148,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="post-media">
                                                                                                     <Link
-                                                                                                        to={`/news_details/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
+                                                                                                        to={`/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
                                                                                                         title="">
                                                                                                         <img
                                                                                                             src={item.description[0].match(/src="(.*?)"/)[1]}
@@ -163,7 +163,7 @@ const Header = () => {
                                                                                                 <div
                                                                                                     className="blog-meta">
                                                                                                     <h4><Link
-                                                                                                        to={`/news_details/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
+                                                                                                        to={`/${encodeURIComponent(category.slug)}/${encodeURIComponent(link)}`}
                                                                                                         title="">{item.title[0]}</Link>
                                                                                                     </h4>
                                                                                                 </div>
@@ -173,7 +173,7 @@ const Header = () => {
                                                                                 </div>
                                                                                 <Link className="nav-link"
                                                                                       style={{float: "right"}}
-                                                                                      to={`/category/${encodeURIComponent(subcategory.slug)}`}>Xem
+                                                                                      to={`/${encodeURIComponent(subcategory.slug)}`}>Xem
                                                                                     thêm</Link>
                                                                             </div>
                                                                         );
@@ -192,7 +192,7 @@ const Header = () => {
                                                     onClick={() => handleCategoryClick(category.slug)}
                                                     className="nav-item">
                                                     <Link className="nav-link"
-                                                          to={`/category/${encodeURIComponent(category.slug)}`}>{category.name}</Link>
+                                                          to={`/${encodeURIComponent(category.slug)}`}>{category.name}</Link>
                                                 </li>
                                             )
                                         }
@@ -221,12 +221,12 @@ const Header = () => {
                                         return (<div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
                                             <div className="card p-0 overflow-hidden shadow">
                                                 <Link onClick={handleCloseModal}
-                                                      to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}><img
+                                                      to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}><img
                                                     src={item.imageUrl} alt={item.title}
                                                     className="card-img-top"/></Link>
                                                 <div className="card-body">
                                                   cha  <h5><Link onClick={handleCloseModal}
-                                                              to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                              to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                               title="">{item.title}</Link></h5>
                                                 </div>
                                             </div>

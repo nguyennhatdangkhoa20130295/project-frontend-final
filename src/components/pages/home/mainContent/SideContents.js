@@ -16,13 +16,11 @@ const SideContents = (props) => {
                                     <VideoPlayer
                                         source="https://youtu.be/o_R10T59ZPg"
                                         poster="https://i.ytimg.com/vi/o_R10T59ZPg/maxresdefault.jpg"
-
                                     />
                                     <span className="videohover"></span>
                                 </div>
                                 <div className="blog-meta">
-                                    <h4>HIGHLIGHTS: NAPOLI - AC MILAN | HỎNG ĂN PENALTY CÙNG NHAU VÀ 2 CÁI KẾT KHÁC NHAU
-                                        | UCL 22/23</h4>
+                                    <h4>HIGHLIGHTS: NAPOLI - AC MILAN | HỎNG ĂN PENALTY CÙNG NHAU VÀ 2 CÁI KẾT KHÁC NHAU | UCL 22/23</h4>
                                 </div>
                             </Link>
                         </div>
@@ -39,8 +37,7 @@ const SideContents = (props) => {
                                     <span className="videohover"></span>
                                 </div>
                                 <div className="blog-meta">
-                                    <h4>HIGHLIGHTS: MAN UNITED - CHELSEA | TẤN CÔNG RỰC LỬA, TẤM VÉ CUỐI CÙNG ĐÃ CÓ CHỦ
-                                        | NGOẠI HẠNG ANH 22/23</h4>
+                                    <h4>HIGHLIGHTS: MAN UNITED - CHELSEA | TẤN CÔNG RỰC LỬA, TẤM VÉ CUỐI CÙNG ĐÃ CÓ CHỦ | NGOẠI HẠNG ANH 22/23</h4>
                                 </div>
                             </Link>
                         </div>
@@ -57,8 +54,7 @@ const SideContents = (props) => {
                                     <span className="videohover"></span>
                                 </div>
                                 <div className="blog-meta">
-                                    <h4>HIGHLIGHTS | VIỆT NAM - CAMPUCHIA | BÓNG RỔ NỮ 5x5 | THIÊN ĐƯỜNG CỦA BẮN 3 ĐIỂM
-                                        | SEA GAMES 32</h4>
+                                    <h4>HIGHLIGHTS | VIỆT NAM - CAMPUCHIA | BÓNG RỔ NỮ 5x5 | THIÊN ĐƯỜNG CỦA BẮN 3 ĐIỂM | SEA GAMES 32</h4>
                                 </div>
                             </Link>
                         </div>
@@ -74,7 +70,7 @@ const SideContents = (props) => {
                             return (
                                 <div key={index} className="list-group">
                                     <Link
-                                        to={`/news_details/${encodeURIComponent(props.slug)}/${encodeURIComponent(link)}`}
+                                        to={`/${encodeURIComponent(props.slug)}/${encodeURIComponent(link)}`}
                                         className="list-group-item list-group-item-action flex-column align-items-start">
                                         <div className="w-100 justify-content-between">
                                             <img src={!item.image ? item.imageUrl : item.image} alt=""

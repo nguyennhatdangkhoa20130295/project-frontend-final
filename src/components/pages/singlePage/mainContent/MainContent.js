@@ -27,17 +27,17 @@ export const Cover = ({data, slug, category}) => {
     return (
         <div className="box_top_category col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div className="cover">
-                <Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                <Link to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                       className="thumb" title={data.title}><img
                     className=""
                     src={data.imageUrl}
                     width="432" height="286.4"
                     alt={data.title}/></Link>
                 <div className="text blog-grid-system blog-meta big-meta">
-                    <span className="color-orange"><Link to={`/category/${encodeURIComponent(slug)}`}
+                    <span className="color-orange"><Link to={`/${encodeURIComponent(slug)}`}
                                                          title="">{category}</Link></span>
                     <h2><Link
-                        to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                        to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                         className="title" title={data.title}>{data.title}</Link></h2>
                     <p className="sapo">{data.description}</p>
                     <small>{data.pubDate}</small>
@@ -87,7 +87,7 @@ const MainContent = ({slug}) => {
                                             return (<div key={itemIndex} className="col-md-6">
                                                 <div className="blog-box">
                                                     <div className="post-media">
-                                                        <Link to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                        <Link to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                               title="">
                                                             <img src={item.imageUrl} alt=""
                                                                  className="img-fluid"/>
@@ -96,10 +96,10 @@ const MainContent = ({slug}) => {
                                                     </div>
                                                     <div className="blog-meta big-meta">
                                                         <span className="color-orange"><Link
-                                                            to={`/category/${encodeURIComponent(slug)}`}
+                                                            to={`/${encodeURIComponent(slug)}`}
                                                             title="">{category}</Link></span>
                                                         <h4><Link
-                                                            to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                            to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                             title="">{item.title}</Link></h4>
                                                         <p>{item.description}</p>
                                                         <small>{item.pubDate}</small>

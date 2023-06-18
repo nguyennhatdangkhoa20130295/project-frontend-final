@@ -54,7 +54,7 @@ export default function RecentNews() {
                                         <div className="blog-box row">
                                             <div className="col-md-4">
                                                 <div className="post-media">
-                                                    <Link to={`/news_details/trang-chu/${encodeURIComponent(link)}`} title="">
+                                                    <Link to={`/trang-chu/${encodeURIComponent(link)}`} title="">
                                                         <img src={item.image} alt="/" className="img-fluid"/>
                                                         <div className="hovereffect"></div>
                                                     </Link>
@@ -62,7 +62,7 @@ export default function RecentNews() {
                                             </div>
 
                                             <div className="blog-meta big-meta col-md-8">
-                                                <h4><Link to={`/news_details/trang-chu/${encodeURIComponent(link)}`} title="">{item.title}</Link></h4>
+                                                <h4><Link to={`/trang-chu/${encodeURIComponent(link)}`} title="">{item.title}</Link></h4>
                                                 <p>{item.description}</p>
                                                 <small>{item.pubDate}</small>
                                             </div>

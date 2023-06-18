@@ -46,12 +46,12 @@ const NewsDetails = () => {
                                     <ol className="breadcrumb hidden-xs-down">
                                         <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
                                         <li className="breadcrumb-item"><Link
-                                            to={`/category/${encodeURIComponent(slug)}`}>{!parentCategory ? 'Bóng đá' : parentCategory}</Link>
+                                            to={`/${encodeURIComponent(slug)}`}>{!parentCategory ? 'Bóng đá' : parentCategory}</Link>
                                         </li>
                                         <li className="breadcrumb-item active">{articleContent.title}</li>
                                     </ol>
 
-                                    <span className="color-orange"><Link to={`/category/${encodeURIComponent(slug)}`}
+                                    <span className="color-orange"><Link to={`/${encodeURIComponent(slug)}`}
                                                                          title="">{!parentCategory ? 'Bóng đá' : parentCategory}</Link></span>
 
                                     <h1 className="big_title">{articleContent.title}</h1>
@@ -97,7 +97,7 @@ const NewsDetails = () => {
                                                     <div className="blog-box">
                                                         <div className="post-media">
                                                             <Link
-                                                                to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                                to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                                 title="">
                                                                 <img src={item.imageUrl} alt=""
                                                                      className="img-fluid"/>
@@ -106,7 +106,7 @@ const NewsDetails = () => {
                                                         </div>
                                                         <div className="blog-meta">
                                                             <h4><Link
-                                                                to={`/news_details/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                                to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
                                                                 title="">{item.title}</Link></h4>
                                                             <small>{item.pubDate}</small>
                                                         </div>

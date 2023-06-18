@@ -26,7 +26,7 @@ const HotNews = () => {
         }
     };
     useEffect(() => {
-        setRssUrl("https://thethao247.vn/u23-dong-nam-a-c256.rss");
+        setRssUrl("https://thethao247.vn/tuyen-quoc-gia-vn-c19.rss");
     }, []);
     getRss();
     return (
