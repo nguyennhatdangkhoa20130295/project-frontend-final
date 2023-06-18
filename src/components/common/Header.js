@@ -18,11 +18,15 @@ const Header = () => {
     const openCategory = (evt, catName) => {
         evt.preventDefault();
         setActiveSubcategory(catName);
-        setSelectedCategory(catName);
     }
     const handleCategoryClick = (category) => {
-        setSelectedCategory(category);
+        if (category === "") {
+            setSelectedCategory('trang-chu');
+        } else {
+            setSelectedCategory(category);
+        }
         setShowModal(false);
+        setSearch('');
     };
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -31,7 +35,7 @@ const Header = () => {
         setSearch(event.target.value);
     };
 
-    const {feedData, isLoading} = RssFeedByCategory(!selectedCategory ? 'trang-chu' : selectedCategory);
+    const {feedData, isLoading} = RssFeedByCategory(selectedCategory);
 
     useEffect(() => {
         if (search.trim() === '') {
@@ -96,11 +100,8 @@ const Header = () => {
                         <Link className="navbar-brand" to="/"><img
                             src="/assets/images/logo-header.png"
                             alt="logo header" width="200px" height="50px"/></Link>
-                        <div className="collapse navbar-collapse" id="navbarCollapse" style={{width:1310}}>
+                        <div className="collapse navbar-collapse" id="navbarCollapse" style={{width: 1310}}>
                             <ul className="navbar-nav mr-auto">
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/">Trang chủ</Link>
-                                </li>
                                 {categories.map((category, categoryIndex) => {
                                     if (category.subcategories.length > 0) {
                                         return (
@@ -185,18 +186,17 @@ const Header = () => {
                                                 </ul>
                                             </li>
                                         );
-                                    } else
-                                        {
-                                            return (
-                                                <li key={categoryIndex}
-                                                    onClick={() => handleCategoryClick(category.slug)}
-                                                    className="nav-item">
-                                                    <Link className="nav-link"
-                                                          to={`/${encodeURIComponent(category.slug)}`}>{category.name}</Link>
-                                                </li>
-                                            )
-                                        }
-                                    })
+                                    } else {
+                                        return (
+                                            <li key={categoryIndex}
+                                                onClick={() => handleCategoryClick(category.slug)}
+                                                className="nav-item">
+                                                <Link className="nav-link"
+                                                      to={`/${encodeURIComponent(category.slug)}`}>{category.name}</Link>
+                                            </li>
+                                        )
+                                    }
+                                })
                                 }
                             </ul>
                         </div>
@@ -225,9 +225,9 @@ const Header = () => {
                                                     src={item.imageUrl} alt={item.title}
                                                     className="card-img-top"/></Link>
                                                 <div className="card-body">
-                                                  cha  <h5><Link onClick={handleCloseModal}
-                                                              to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
-                                                              title="">{item.title}</Link></h5>
+                                                    <h5><Link onClick={handleCloseModal}
+                                                                  to={`/${encodeURIComponent(slug)}/${encodeURIComponent(link)}`}
+                                                                  title="">{item.title}</Link></h5>
                                                 </div>
                                             </div>
                                         </div>);

@@ -46,13 +46,14 @@ const NewsDetails = () => {
                                     <ol className="breadcrumb hidden-xs-down">
                                         <li className="breadcrumb-item"><Link to="/">Trang chủ</Link></li>
                                         <li className="breadcrumb-item"><Link
-                                            to={`/${encodeURIComponent(slug)}`}>{!parentCategory ? 'Bóng đá' : parentCategory}</Link>
+                                            to={`/${encodeURIComponent(slug === 'trang-chu' ? '' : slug)}`}>{!parentCategory ? 'Thể thao 247' : parentCategory}</Link>
                                         </li>
                                         <li className="breadcrumb-item active">{articleContent.title}</li>
                                     </ol>
 
-                                    <span className="color-orange"><Link to={`/${encodeURIComponent(slug)}`}
-                                                                         title="">{!parentCategory ? 'Bóng đá' : parentCategory}</Link></span>
+                                    <span className="color-orange"><Link
+                                        to={`/${encodeURIComponent(slug === 'trang-chu' ? '' : slug)}`}
+                                        title="">{!parentCategory ? 'Thể thao 247' : parentCategory}</Link></span>
 
                                     <h1 className="big_title">{articleContent.title}</h1>
 

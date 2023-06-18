@@ -42,7 +42,6 @@ const RssFeedByCategory = (slug) => {
                         });
                         const storedData = localStorage.getItem('rssFeedData');
                         let parsedData = storedData ? JSON.parse(storedData) : {};
-                        console.log(parsedData['bong-da-quoc-te-c2'])
 
                         if (parsedData[slug]) {
 

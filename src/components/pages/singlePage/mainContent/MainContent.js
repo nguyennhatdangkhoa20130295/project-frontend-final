@@ -8,12 +8,12 @@ import {useState} from "react";
 import ScrollToTop from "../../../common/ScrollToTop";
 import SideContentSpecific from "./SideContentSpecific";
 
-export const findCategoryBySlug = (categories, categoryName, parentCategory = null) => {
+export const findCategoryBySlug = (categories, categorySlug, parentCategory = null) => {
     for (const category of categories) {
-        if (category.slug === categoryName) {
+        if (category.slug === categorySlug) {
             return parentCategory ? {...category, parentCategory} : category;
         } else if (category.subcategories?.length > 0) {
-            const subcategory = findCategoryBySlug(category.subcategories, categoryName, category);
+            const subcategory = findCategoryBySlug(category.subcategories, categorySlug, category);
             if (subcategory) {
                 return subcategory;
             }
