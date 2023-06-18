@@ -1,5 +1,10 @@
 export const categoriesData = [
     {
+        name: 'Trang chủ',
+        slug: '',
+        subcategories: [],
+    },
+    {
         name: 'Bóng đá Việt Nam',
         slug: 'bong-da-viet-nam-c1',
         subcategories: [
